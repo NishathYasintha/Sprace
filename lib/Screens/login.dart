@@ -44,9 +44,14 @@ class _LoginPageState extends State<LoginPage> {
                           image: AssetImage("assets/img_1.png"),
                         ),
                       ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left:30.0, top:120.0,right:0.0,bottom:0.0),
+                        child: Text("Enter your email and password below",style: TextStyle(color: Color(0xFF9FA2B4) ,fontSize: 14,),),
+                      ),
                     ),
-                    Text("Enter your email and password below",style: TextStyle(fontSize: 14,),),
-                    Text("Email",style: TextStyle(fontSize: 14,),),
+                    SizedBox(height: 30,),
+                    Text("EMAIL",style: TextStyle(fontSize: 14,),),
+                    SizedBox(height: 8,),
                     TextField(
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
@@ -54,12 +59,17 @@ class _LoginPageState extends State<LoginPage> {
                           border: OutlineInputBorder()
                       ),
                     ),
+                    SizedBox(height: 24,),
                     Row(
+                      mainAxisSize: MainAxisSize.max,
+                      // mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Password",style: TextStyle(fontSize: 14,),),
+                        Text("PASSWORD",style: TextStyle(fontSize: 14,),),
+                        SizedBox(width: 150,),
                         Text("Fogot Password",style: TextStyle(fontSize: 10),),
                       ],
                     ),
+                    SizedBox(height: 8,),
                     TextField(
                       keyboardType: TextInputType.visiblePassword,
                       decoration: InputDecoration(
@@ -67,19 +77,24 @@ class _LoginPageState extends State<LoginPage> {
                           border: OutlineInputBorder()
                       ),
                     ),
+                    SizedBox(height: 24,),
                     Container(
                       height: 48,
                       width: 316,
                       color: AppColor.mainColor,
                       child: Center(child: Text('Log In',style: TextStyle(color: Colors.white, fontSize: 14,),)),
                     ),
-                    Center(child:Row(
-
+                    SizedBox(height: 32,),
+                    Center(
+                        child:Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text("Dont have an account?",style: TextStyle(color: Color(0xFF9FA2B4) , fontSize: 14,fontWeight: FontWeight.w400,),),
                         Text("Sign Up",style: TextStyle(color: AppColor.mainColor , fontSize: 14,fontWeight: FontWeight.w400,),)
                       ],
-                    ) ),
+                    )
+                    ),
                   ],
                 ),
               ),
