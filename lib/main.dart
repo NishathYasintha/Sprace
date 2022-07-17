@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sprace/Screens/login.dart';
 
 void main(){
   runApp(MyApp());
@@ -10,26 +11,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'BMI CALCULATOR',
+      title: 'Sprace',
       theme: ThemeData(
-        primarySwatch: Colors.yellow,
+        primaryColor: Color(0xFF94B447),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeScreen(),
+      home: LoginPage(),
     );
   }
 }
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
