@@ -10,6 +10,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool _obscureText= true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,15 +47,16 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       child: Padding(
                         padding: const EdgeInsets.only(left:30.0, top:120.0,right:0.0,bottom:0.0),
-                        child: Text("Enter your email and password below",style: TextStyle(color: Color(0xFF9FA2B4) ,fontSize: 14,),),
+                        child: Text("Enter your email and password below",style: TextStyle(color: AppColor.textDark ,fontSize: 14,fontWeight: FontWeight.w400),),
                       ),
                     ),
                     SizedBox(height: 30,),
-                    Text("EMAIL",style: TextStyle(fontSize: 14,),),
+                    Text("EMAIL",style: TextStyle(color: AppColor.textDark, fontSize: 14,fontWeight: FontWeight.w700),),
                     SizedBox(height: 8,),
                     TextField(
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
+                          filled: true,
                           hintText: 'Emai Address',
                           border: OutlineInputBorder()
                       ),
@@ -64,20 +66,31 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisSize: MainAxisSize.max,
                       // mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("PASSWORD",style: TextStyle(fontSize: 14,),),
+                        Text("PASSWORD",style: TextStyle(color: AppColor.textDark, fontSize: 14,fontWeight: FontWeight.w700),),
                         SizedBox(width: 150,),
                         Text("Fogot Password",style: TextStyle(fontSize: 10),),
                       ],
                     ),
                     SizedBox(height: 8,),
+
                     TextField(
                       keyboardType: TextInputType.visiblePassword,
                       decoration: InputDecoration(
+                        filled: true,
                         hintText: 'Password',
-                          border: OutlineInputBorder()
+                        border: OutlineInputBorder(),
+                        suffixIcon: IconButton(
+                          icon: _obscureText
+                              ?Icon(Icons.visibility_off, color: AppColor.textDark,)
+                              :Icon(Icons.visibility , color: AppColor.textDark,),
+                          onPressed: (){setState(() =>_obscureText = !_obscureText);},
+                        )
                       ),
+                      obscureText: _obscureText,
                     ),
+
                     SizedBox(height: 24,),
+
                     Container(
                       height: 48,
                       width: 316,
