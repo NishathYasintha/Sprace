@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../component/header.dart';
 import '../component/sidemenu.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -16,7 +17,8 @@ class _DashboardPageState extends State<DashboardPage> {
       body: Container(
         child: Row(
           children: [
-            SideMenu()
+            SideMenu(),
+            HeaderBar()
           ],
         ),
       ),
