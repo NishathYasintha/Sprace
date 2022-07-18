@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sprace/Screens/login.dart';
+import 'package:sprace/Screens/service.dart';
 
+import 'Screens/cleaners.dart';
 import 'Screens/signup.dart';
 import 'Screens/dashboard.dart';
 
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFF94B447),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: DashboardPage(),
+      home: CleanPage(),
     );
   }
 }
