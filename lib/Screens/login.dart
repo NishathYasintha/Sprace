@@ -57,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                           filled: true,
-                          hintText: 'Emai Address',
+                          hintText: 'Email Address',
                           border: OutlineInputBorder()
                       ),
                     ),
@@ -92,6 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(height: 24,),
 
                     Container(
+
                       height: 48,
                       width: 316,
                       color: AppColor.mainColor,
