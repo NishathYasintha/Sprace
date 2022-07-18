@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sprace/component/colors.dart';
 
 class SideMenu extends StatefulWidget {
   const SideMenu({Key? key}) : super(key: key);
@@ -11,51 +10,69 @@ class SideMenu extends StatefulWidget {
 class _SideMenuState extends State<SideMenu> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      width: 350,
-      height: MediaQuery.of(context).size.height,
-      child: Column(
-        children: [
-          Container(
-            height: 165,
-            width: 318,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/img_1.png"),
-                fit: BoxFit.cover,
+    return Drawer(
+      child: Container(
+        color: Colors.white,
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Text(
+                'Side menu',
+                style: TextStyle(color: Colors.white, fontSize: 25),
               ),
+              decoration: BoxDecoration(
+                  // color: Colors.green,
+                  image: DecorationImage(
+                      // fit: BoxFit.fill,
+                      image: AssetImage('assets/img_1.png'))),
             ),
-          ),
-          Column(
-              children: [
-                MenuItems()
-              ],
-          )
-        ],
+            ListTile(
+              leading: Icon(Icons.input),
+              title: Text('Dashboard',
+                  style: TextStyle(fontSize: 18, color: Color(0xff7D7D7D))),
+              onTap: () => {},
+              contentPadding: EdgeInsets.only(left: 59, top:36,bottom: 30),
+              tileColor: Color(0Xff94B447),
+            ),
+            ListTile(
+              leading: Icon(Icons.verified_user),
+              title: Text('Orders',
+                  style: TextStyle(fontSize: 18, color: Color(0xff7D7D7D))),
+              onTap: () {},
+              contentPadding: EdgeInsets.only(left: 59, bottom: 30),
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Cleaners',
+                  style: TextStyle(fontSize: 18, color: Color(0xff7D7D7D))),
+              onTap: () {},
+              contentPadding: EdgeInsets.only(left: 59, bottom: 30),
+            ),
+            ListTile(
+              leading: Icon(Icons.border_color),
+              title: Text('Services',
+                  style: TextStyle(fontSize: 18, color: Color(0xff7D7D7D))),
+              onTap: () {},
+              contentPadding: EdgeInsets.only(left: 59, bottom: 30),
+            ),
+            ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text('Profile',
+                  style: TextStyle(fontSize: 18, color: Color(0xff7D7D7D))),
+              onTap: () {},
+              contentPadding: EdgeInsets.only(left: 59, bottom: 30),
+            ),
+            ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text('Settings',
+                  style: TextStyle(fontSize: 18, color: Color(0xff7D7D7D))),
+              onTap: () {},
+              contentPadding: EdgeInsets.only(left: 59, bottom: 30),
+            ),
+          ],
+        ),
       ),
     );
   }
-}
-
-MenuItems() {
-  return Container(
-    child: Column(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            color: AppColor.mainColor, borderRadius: BorderRadius.circular(10)
-          ),
-          height: 70,
-          width: 209,
-          child: Row(
-            children: [
-              Icon(Icons.home_filled),
-              Text('Dashboard', style: TextStyle(),)
-            ],
-          ),
-        )
-      ],
-    ),
-  );
 }
