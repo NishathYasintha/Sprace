@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sprace/Screens/login.dart';
 
 import 'Screens/signup.dart';
+import 'Screens/dashboard.dart';
 
 void main(){
   runApp(MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFF94B447),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SignupPage(),
+      home: DashboardPage(),
     );
   }
 }

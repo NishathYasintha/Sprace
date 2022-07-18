@@ -80,6 +80,14 @@ flutter:
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
+
+
+  fonts:
+    - family: mulish
+      fonts:
+#        - asset: assets/Mulish-Italic-VariableFont_wght.ttf
+        - asset: assets/Mulish-VariableFont_wght.ttf
+          weight: 400
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
