@@ -34,7 +34,6 @@ class _DashboardPageState extends State<DashboardPage> {
                       Comp('Orders','wysiwyg',06),
                       Comp('Servises','wysiwyg',12),
                       Comp('Cleaners','wysiwyg',24),
-                      SizedBox(width: 100,)
 
                     ],
                   ),
