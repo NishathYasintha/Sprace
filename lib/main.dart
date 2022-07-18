@@ -7,12 +7,11 @@ import 'Screens/cleaners.dart';
 import 'Screens/signup.dart';
 import 'Screens/dashboard.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,8 +21,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFF94B447),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ProfilePage(),
+      home: ServicePage(),
     );
   }
 }
-
