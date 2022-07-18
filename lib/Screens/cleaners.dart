@@ -122,120 +122,143 @@ class _CleanPageState extends State<CleanPage> {
                           children: [
                             Column(
                               children: [
-                                Table(
-                                  // defaultColumnWidth: FixedColumnWidth(150.0),
-                                  // border: TableBorder.all(
-                                  //     color: Colors.black,
-                                  //     style: BorderStyle.solid,
-                                  //     width: 2),
-                                  children: [
-                                    TableRow(
-                                      children: [
-                                        Column(
-                                          children: [Text("Name")],
-                                        ),
-                                        Column(
-                                          children: [Text("Email")],
-                                        ),
-                                        Column(
-                                          children: [Text("Address")],
-                                        ),
-                                        Column(
-                                          children: [Text("Phone No")],
-                                        ),
-                                        Column(
-                                          children: [],
-                                        ),
-                                        Column(
-                                          children: [],
-                                        )
-                                      ],
-                                    ),
-
-                                    // cleaners.forEach((element)=> {
-                                    //   TableRow(children: [
-                                    //     Column(children: [Text(element[0])],),
-                                    //     Column(children: [Text(element[1])],),
-                                    //     Column(children: [Text(element[2])],),
-                                    //     Column(children: [Text(element[3])],)
-                                    //   ]),
-                                    // }) ,
-
-                                    //hard coded
-                                    TableRow(children: [
-                                      Column(
-                                        children: [Text("name1")],
-                                      ),
-                                      Column(
-                                        children: [Text("name1@gmail.com")],
-                                      ),
-                                      Column(
-                                        children: [Text("A street, Tokyo")],
-                                      ),
-                                      Column(
-                                        children: [Text("+956457345")],
-                                      ),
-                                      Column(
+                                Padding(
+                                  padding: const EdgeInsets.only(top:20.0),
+                                  child: Table(
+                                    // defaultColumnWidth: FixedColumnWidth(150.0),
+                                    // border: TableBorder.all(
+                                    //     color: Colors.black,
+                                    //     style: BorderStyle.solid,
+                                    //     width: 2),
+                                    children: [
+                                      TableRow(
                                         children: [
-                                          Container(
-                                            decoration: BoxDecoration(
-                                              image: DecorationImage(
-                                                image: AssetImage(
-                                                    "assets/pencil.png"),
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
-                                            width: 50.0,
-                                            height: 50.0,
+                                          Column(
+                                            children: [Text("Name")],
+                                          ),
+                                          Column(
+                                            children: [Text("Email")],
+                                          ),
+                                          Column(
+                                            children: [Text("Address")],
+                                          ),
+                                          Column(
+                                            children: [Text("Phone No")],
+                                          ),
+                                          Column(
+                                            children: [
+                                              Container(
+                                                height: 40.0,
+                                              )
+                                            ],
+                                          ),
+                                          Column(
+                                            children: [],
                                           )
                                         ],
+                                        
                                       ),
-                                      Column(
-                                        children: [Text("+956457345")],
-                                      ),
-                                    ]),
 
-                                    TableRow(children: [
-                                      Column(
-                                        children: [Text("name1")],
-                                      ),
-                                      Column(
-                                        children: [Text("name1@gmail.com")],
-                                      ),
-                                      Column(
-                                        children: [Text("A street, Tokyo")],
-                                      ),
-                                      Column(
-                                        children: [Text("+956457345")],
-                                      ),
-                                      Column(
-                                        children: [Text("+956457345")],
-                                      ),
-                                      Column(
-                                        children: [Text("+956457345")],
-                                      ),
-                                    ]),
-                                    TableRow(children: [
-                                      Column(
-                                        children: [Text("name1")],
-                                      ),
-                                      Column(
-                                        children: [Text("name1@gmail.com")],
-                                      ),
-                                      Column(
-                                        children: [Text("A street, Tokyo")],
-                                      ),
-                                      Column(
-                                        children: [Text("+956457345")],
-                                      ),
-                                      Column(
-                                        children: [Text("+956457345")],
-                                      ),
-                                      Column(
-                                        children: [Text("+956457345")],
-                                      ),
-                                    ]),
-                                  ],
+                                      // cleaners.forEach((element)=> {
+                                      //   TableRow(children: [
+                                      //     Column(children: [Text(element[0])],),
+                                      //     Column(children: [Text(element[1])],),
+                                      //     Column(children: [Text(element[2])],),
+                                      //     Column(children: [Text(element[3])],)
+                                      // Column(
+                                      //   children: [Icon(Icons.edit)],
+                                      // ),
+                                      // Column(
+                                      //   children: [
+                                      //     Icon(
+                                      //       Icons.delete_forever,
+                                      //       color: Colors.red,
+                                      //     )
+                                      //   ],
+                                      // ),
+                                      //   ]),
+                                      // }) ,
+
+                                      //hard coded
+                                      
+                                      TableRow(children: [
+                                        Column(
+                                          children: [Text("name1")],
+                                        ),
+                                        Column(
+                                          children: [Text("name1@gmail.com")],
+                                        ),
+                                        Column(
+                                          children: [Text("A street, Tokyo")],
+                                        ),
+                                        Column(
+                                          children: [Text("+956457345")],
+                                        ),
+                                        Column(
+                                          children: [Icon(Icons.edit)],
+                                        ),
+                                        Column(
+                                          children: [
+                                            Icon(
+                                              Icons.delete_forever,
+                                              color: Colors.red,
+                                            )
+                                          ],
+                                        ),
+                                      ]),
+                                      
+                                      TableRow(children: [
+                                        Column(
+                                          children: [Text("name1")],
+                                        ),
+                                        Column(
+                                          children: [Text("name1@gmail.com")],
+                                        ),
+                                        Column(
+                                          children: [Text("A street, Tokyo")],
+                                        ),
+                                        Column(
+                                          children: [Text("+956457345")],
+                                        ),
+                                        Column(
+                                          children: [Icon(Icons.edit)],
+                                        ),
+                                        Column(
+                                          children: [
+                                            Icon(
+                                              Icons.delete_forever,
+                                              color: Colors.red,
+                                            )
+                                          ],
+                                        ),
+                                      ]),
+                                      TableRow(children: [
+                                        Column(
+                                          children: [Text("name1")],
+                                        ),
+                                        Column(
+                                          children: [Text("name1@gmail.com")],
+                                        ),
+                                        Column(
+                                          children: [Text("A street, Tokyo")],
+                                        ),
+                                        Column(
+                                          children: [Text("+956457345")],
+                                        ),
+                                        Column(
+                                          children: [Icon(Icons.edit)],
+                                        ),
+                                        Column(
+                                          children: [
+                                            Icon(
+                                              Icons.delete_forever,
+                                              color: Colors.red,
+                                            )
+                                          ],
+                                        ),
+                                      ]),
+                                    ],
+                                  ),
                                 )
                                 // Row(
                                 //   children: [
@@ -275,6 +298,7 @@ class _CleanPageState extends State<CleanPage> {
   }
 }
 
+//this function call in for each function
 CleanerDetails(var _name, var _email, var _address, var _phoneNo) {
   return Container(
     child: Container(
