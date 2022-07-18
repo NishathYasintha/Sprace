@@ -32,7 +32,7 @@ class _DashboardPageState extends State<DashboardPage> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Comp('Orders','wysiwyg',06),
-                      Comp('Servises','wysiwyg',12),
+                      Comp('Services','wysiwyg',12),
                       Comp('Cleaners','wysiwyg',24),
 
                     ],

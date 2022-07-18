@@ -14,7 +14,7 @@ class _HeaderBarState extends State<HeaderBar> {
       children: [
         Container(
           height: 90,
-          width: MediaQuery.of(context).size.width - 350,
+          width: MediaQuery.of(context).size.width - 304,
           color: Colors.red,
           child: Row(
 

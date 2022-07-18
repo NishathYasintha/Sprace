@@ -86,15 +86,18 @@ class _ServicePageState extends State<ServicePage> {
                     ),
                     ],
                       ),
-                      width: MediaQuery.of(context).size.width - 400,
+                      width: MediaQuery.of(context).size.width - 350,
                       height: MediaQuery.of(context).size.height - 220,
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.only(top:10 ,left:7 , right:7 ,bottom:10 ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Cleaner()
+                            GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2)
+                                
+                            ),
+                            Cleaner('Women', 'Washroom cleaning', 5000)
                           ],
                         ),
                       ),
@@ -114,25 +117,78 @@ class _ServicePageState extends State<ServicePage> {
 }
 
 
-Cleaner () {
+Cleaner (var _gender, var _type, var _price) {
   return Container(
+    decoration: BoxDecoration(
+       color: Colors.white,
+      borderRadius: BorderRadius.circular(10),
+      boxShadow:[
+        BoxShadow(
+          color: Colors.grey.withOpacity(0.2), //color of shadow
+          spreadRadius: 5,
+          blurRadius: 10,
+          offset: Offset(0.5, 1),
+        ),
+      ],
+    ),
     child: Row(
       children: [
         Container(
+          decoration: BoxDecoration(
+            color: Colors.black26,
+            borderRadius: BorderRadius.circular(60)
+          ),
           height: 190,
           width: 165,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/img_2.png"),
-              fit: BoxFit.cover,
-            ),
-            
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 170,
+                width: 145,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/img_2.png"),
+                    fit: BoxFit.cover,
+                  ),
+
+                ),
+              ),
+            ],
+          ),
+        ),
+        Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                child: Text(_gender,style: TextStyle(
+                  fontSize: 25, color: Color(0xFF000000)
+                ),),
+              ),
+              Container(
+                  child: Text('Cleaner',style: TextStyle(
+                      fontSize: 40, color: Color(0xFF000000)
+                  ),)
+              ),
+              Container(
+                child: Text(_type,style: TextStyle(
+                    fontSize: 15, color: Color(0xFF000000)
+                ),),
+              ),
+              Container(
+                child: Text('Rs '+ _price.toString(),style: TextStyle(
+                    fontSize: 20, color: Colors.red
+                ),),
+              ),
+            ],
           ),
         )
       ],
     ),
-    color: Colors.red,
-    width: 400,
+    width: 440,
     height: 240,
   );
 }
