@@ -33,7 +33,7 @@ class _SignupPageState extends State<SignupPage> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10)
                   ),
-                  height: 790.0,
+                  height: 725.0,
                   width: 458.0,
                   child: Padding(
                     padding: const EdgeInsets.only(left:30.0, top:0.0,right:34.0,bottom:10.0),
@@ -43,8 +43,8 @@ class _SignupPageState extends State<SignupPage> {
                         Padding(
                           padding: EdgeInsets.only(left: 30.0, right: 34.0),
                           child: Container(
-                            width: 318,
-                            height: 144,
+                            width: 300,
+                            height: 135,
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: AssetImage("assets/img_1.png"),
@@ -60,7 +60,7 @@ class _SignupPageState extends State<SignupPage> {
                         Text("NAME",style: TextStyle(color: AppColor.textDark, fontSize: 12,fontWeight: FontWeight.w700),),
                         SizedBox(height: 6,),
                         Container(
-                          height: 42,
+                          height: 38,
                           child: TextField(
                             keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
@@ -72,7 +72,7 @@ class _SignupPageState extends State<SignupPage> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 18,),
+                        SizedBox(height: 15,),
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           // mainAxisAlignment: MainAxisAlignment.center,
@@ -84,7 +84,7 @@ class _SignupPageState extends State<SignupPage> {
                         SizedBox(height: 6,),
                 
                         Container(
-                          height: 42.0,
+                          height: 38.0,
                           child: TextField(
                             keyboardType: TextInputType.visiblePassword,
                             decoration: InputDecoration(
@@ -99,7 +99,7 @@ class _SignupPageState extends State<SignupPage> {
                           ),
                         ),
                 
-                        SizedBox(height: 18,),
+                        SizedBox(height: 15,),
 
                         Row(
                           mainAxisSize: MainAxisSize.max,
@@ -112,7 +112,7 @@ class _SignupPageState extends State<SignupPage> {
                         SizedBox(height: 6,),
                 
                         Container(
-                          height: 42.0,
+                          height: 38.0,
                           child: TextField(
                             keyboardType: TextInputType.visiblePassword,
                             decoration: InputDecoration(
@@ -127,7 +127,7 @@ class _SignupPageState extends State<SignupPage> {
                           ),
                         ),
                 
-                        SizedBox(height: 18,),
+                        SizedBox(height: 15,),
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           // mainAxisAlignment: MainAxisAlignment.center,
@@ -139,7 +139,7 @@ class _SignupPageState extends State<SignupPage> {
                         SizedBox(height: 6,),
                 
                         Container(
-                          height: 42.0,
+                          height: 38.0,
                           child: TextField(
                             keyboardType: TextInputType.visiblePassword,
                             decoration: InputDecoration(
@@ -154,7 +154,7 @@ class _SignupPageState extends State<SignupPage> {
                           ),
                         ),
 
-                        SizedBox(height: 18,),
+                        SizedBox(height: 15,),
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           // mainAxisAlignment: MainAxisAlignment.center,
@@ -166,7 +166,7 @@ class _SignupPageState extends State<SignupPage> {
                         SizedBox(height: 6,),
                 
                         Container(
-                          height: 42.0,
+                          height: 38.0,
                           width: 394.0,
                           child: TextField(
                             keyboardType: TextInputType.visiblePassword,
@@ -182,7 +182,7 @@ class _SignupPageState extends State<SignupPage> {
                           ),
                         ),
 
-                        SizedBox(height: 18,),
+                        SizedBox(height: 15,),
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           // mainAxisAlignment: MainAxisAlignment.center,
@@ -198,7 +198,7 @@ class _SignupPageState extends State<SignupPage> {
                             Row(
                               children: [
                                 Container(
-                                  height: 42.0,
+                                  height: 38.0,
                                   width: 295.0,
                                   child: TextField(
                                     keyboardType: TextInputType.visiblePassword,
@@ -217,7 +217,7 @@ class _SignupPageState extends State<SignupPage> {
                                 Padding(
                                   padding: EdgeInsets.only(left:11.0),
                                   child: Container(
-                                    height: 42.0,
+                                    height: 38.0,
                                     width: 88.0,
                                     child: TextField(
                                       keyboardType: TextInputType.visiblePassword,
@@ -237,11 +237,11 @@ class _SignupPageState extends State<SignupPage> {
                               ],
                              
                             ),
-                         SizedBox(height: 18,),
+                         SizedBox(height: 15,),
                             Row(
                               children: [
                                 Container(
-                                  height: 42.0,
+                                  height: 38.0,
                                   width: 84.0,
                                   child: TextField(
                                     keyboardType: TextInputType.visiblePassword,
@@ -260,7 +260,7 @@ class _SignupPageState extends State<SignupPage> {
                                 Padding(
                                   padding: EdgeInsets.only(left:10.0),
                                   child: Container(
-                                    height: 42.0,
+                                    height: 38.0,
                                     width: 300.0,
                                     child: TextField(
                                       keyboardType: TextInputType.visiblePassword,
@@ -285,7 +285,7 @@ class _SignupPageState extends State<SignupPage> {
                          
                           ],
                         ),
-                        SizedBox(height: 18,),
+                        SizedBox(height: 15,),
                         Center(
                           
                           child: GestureDetector(

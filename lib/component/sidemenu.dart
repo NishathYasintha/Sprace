@@ -62,6 +62,7 @@ class _SideMenuState extends State<SideMenu> {
                   style: TextStyle(fontSize: 18, color: Color(0xff7D7D7D))),
               onTap: () {},
               contentPadding: EdgeInsets.only(left: 59, bottom: 30),
+              
             ),
             ListTile(
               leading: Icon(Icons.exit_to_app),
