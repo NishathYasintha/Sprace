@@ -33,7 +33,7 @@ class _SignupPageState extends State<SignupPage> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10)
                   ),
-                  height: 725.0,
+                  height: 725 .0,
                   width: 458.0,
                   child: Padding(
                     padding: const EdgeInsets.only(left:30.0, top:0.0,right:34.0,bottom:10.0),
