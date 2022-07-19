@@ -28,12 +28,13 @@ class _SideMenuState extends State<SideMenu> {
                       image: AssetImage('assets/img_1.png'))),
             ),
             ListTile(
-              leading: Icon(Icons.input),
+              leading: Icon(Icons.input ),
               title: Text('Dashboard',
                   style: TextStyle(fontSize: 18, color: Color(0xff7D7D7D))),
               onTap: () => {},
               contentPadding: EdgeInsets.only(left: 59, top:36,bottom: 30),
-              tileColor: Color(0Xff94B447),
+              dense: true,
+              tileColor: Colors.green,
             ),
             ListTile(
               leading: Icon(Icons.verified_user),
