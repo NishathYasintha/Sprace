@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFF94B447),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: InOrderPage(),
+      home: CleanPage(),
     );
   }
 }

@@ -375,6 +375,15 @@ class _SignupPageState extends State<SignupPage> {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 color: AppColor.mainColor,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey
+                                        .withOpacity(0.7), //color of shadow
+                                    spreadRadius: 5,
+                                    blurRadius: 10,
+                                    offset: Offset(0.5, 1),
+                                  )
+                                ],
                               ),
 
                               height: 48,
