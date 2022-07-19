@@ -1,3 +1,4 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sprace/component/colors.dart';
@@ -14,6 +15,8 @@ class ServicePage extends StatefulWidget {
 
 class _ServicePageState extends State<ServicePage> {
   @override
+  final items = ['Admin', 'User', 'Cleaners'];
+  String? selectedItem = 'Admin';
   Widget build(BuildContext context) {
     Future<void> openDialog() async {
       return showDialog<void>(
@@ -72,25 +75,26 @@ class _ServicePageState extends State<ServicePage> {
                             SizedBox(
                               height: 12,
                             ),
-                            Text("Email"),
+                            Text("Category"),
                             SizedBox(
                               height: 8,
                             ),
                             Container(
+                              width: 300,
                               height: 35,
-                              child: TextField(
-                                keyboardType: TextInputType.emailAddress,
-                                decoration: InputDecoration(
-                                  filled: true,
-                                  hintText: 'Email',
-                                  border: OutlineInputBorder(),
-                                  contentPadding:
-                                      EdgeInsets.only(left: 10.0, top: 5.0),
-                                  hintStyle: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                      color:
-                                          Color(0xFF4B506D).withOpacity(0.4)),
+                              child:DropdownButtonHideUnderline(
+                                child: DropdownButton<String>(
+                                  underline: null,
+                                  value: selectedItem,
+                                  items: items
+                                      .map((item)=> DropdownMenuItem<String>(
+                                      value: item,
+                                      child: Text(item)
+                                  )
+                                  ).toList(),
+                                  onChanged: (item) =>setState(() {
+                                    selectedItem=item;
+                                  }),
                                 ),
                               ),
                             ),
@@ -144,34 +148,50 @@ class _ServicePageState extends State<ServicePage> {
                                 ),
                               ),
                             ),
+                            SizedBox(
+                              height: 15,
+                            ),
                             Text("Upload Image"),
                             SizedBox(
                               height: 8,
                             ),
                             Container(
                               height: 100,
-                              width: 50,
+                              width: 300,
                               decoration: BoxDecoration(),
-                              child: Container(
-                                  child: Column(
-                                children: [
-                                  //image
-                                  Container(
-                                    // color: Colors.red,
-                                    width: 50,
-                                    height: 50,
-                                    // decoration: BoxDecoration(
-                                    //   // color: Colors.red,
-                                    //   image: DecorationImage(
-                                    //     image: AssetImage("assets/img_8.png"),
-                                    //     fit: BoxFit.cover,
-                                    //   ),
-                                    // ),
-                                  ),
-                                  //text
-                                  Container(),
-                                ],
-                              )),
+                              child: DottedBorder(
+                                child: Container(
+                                    child: Center(
+                                      child: Column(
+                                  children: [
+                                      //image
+                                      Container(
+                                        // color: Colors.red,
+                                        width: 50,
+                                        height: 50,
+                                        decoration: BoxDecoration(
+                                          // color: Colors.red,
+                                          image: DecorationImage(
+                                            image: AssetImage("assets/img_8.png"),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                      //text
+                                      Container(
+                                        child: Text('Drag and drop here',style: TextStyle(
+                                          color: Colors.black45,fontSize: 18
+                                        ),),
+                                      ),
+                                    Container(
+                                      child: Text(' or brows',style: TextStyle(
+                                          color: Colors.black45,fontSize: 18
+                                      ),),
+                                    ),
+                                  ],
+                                ),
+                                    )),
+                              ),
                             ),
                             SizedBox(
                               height: 10,
@@ -179,7 +199,7 @@ class _ServicePageState extends State<ServicePage> {
                             Row(
                               children: [
                                 SizedBox(
-                                  width: 63,
+                                  width: 90,
                                 ),
                                 Container(
                                   width: 100,
