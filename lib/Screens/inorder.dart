@@ -15,6 +15,9 @@ class InOrderPage extends StatefulWidget {
 
 class _InOrderPageState extends State<InOrderPage> {
   @override
+  final items = ['Admin', 'User', 'Cleaners'];
+  String? selectedItem = 'Admin';
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -280,9 +283,6 @@ class _InOrderPageState extends State<InOrderPage> {
                                                     ),
                                                     child: TextField(
                                                       controller: myController,
-                                                      keyboardType:
-                                                          TextInputType
-                                                              .visiblePassword,
                                                       decoration:
                                                           InputDecoration(
                                                         contentPadding:
@@ -310,23 +310,20 @@ class _InOrderPageState extends State<InOrderPage> {
                                                     decoration: BoxDecoration(
                                                       color: Colors.white,
                                                     ),
-                                                    child: TextField(
-                                                      keyboardType:
-                                                          TextInputType
-                                                              .visiblePassword,
-                                                      decoration:
-                                                          InputDecoration(
-                                                        contentPadding:
-                                                            EdgeInsets.only(
-                                                                left: 10.0,
-                                                                top: 5.0),
-                                                        filled: true,
-                                                        
-                                                        border:
-                                                            OutlineInputBorder(),
-                                                        
+                                                    child: DropdownButtonHideUnderline(
+                                                      child: DropdownButton<String>(
+                                                        underline: null,
+                                                        value: selectedItem,
+                                                        items: items
+                                                            .map((item)=> DropdownMenuItem<String>(
+                                                            value: item,
+                                                            child: Text(item)
+                                                        )
+                                                        ).toList(),
+                                                        onChanged: (item) =>setState(() {
+                                                          selectedItem=item;
+                                                        }),
                                                       ),
-                                                      
                                                     ),
                                                   ),
                                                 ),
