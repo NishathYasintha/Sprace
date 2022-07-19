@@ -56,12 +56,12 @@ class _ServicePageState extends State<ServicePage> {
                                   color: Color(0xFF4B506D).withOpacity(0.4)),
                             ),
                           ),
-                          Text("Email"),
+                          Text("Category"),
                           TextField(
                             keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
                               filled: true,
-                              hintText: 'Name',
+                              hintText: 'Category',
                               border: OutlineInputBorder(),
                               contentPadding:
                                   EdgeInsets.only(left: 10.0, top: 5.0),
@@ -71,12 +71,12 @@ class _ServicePageState extends State<ServicePage> {
                                   color: Color(0xFF4B506D).withOpacity(0.4)),
                             ),
                           ),
-                          Text("Address"),
+                          Text("Price"),
                           TextField(
                             keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
                               filled: true,
-                              hintText: 'Name',
+                              hintText: 'Price',
                               border: OutlineInputBorder(),
                               contentPadding:
                                   EdgeInsets.only(left: 10.0, top: 5.0),
@@ -86,12 +86,12 @@ class _ServicePageState extends State<ServicePage> {
                                   color: Color(0xFF4B506D).withOpacity(0.4)),
                             ),
                           ),
-                          Text("Phone Number"),
+                          Text("Location"),
                           TextField(
                             keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
                               filled: true,
-                              hintText: 'Name',
+                              hintText: 'Location',
                               border: OutlineInputBorder(),
                               contentPadding:
                                   EdgeInsets.only(left: 10.0, top: 5.0),
@@ -99,6 +99,14 @@ class _ServicePageState extends State<ServicePage> {
                                   fontSize: 14,
                                   fontWeight: FontWeight.w400,
                                   color: Color(0xFF4B506D).withOpacity(0.4)),
+                            ),
+                          ),
+                          Text("Upload Image"),
+                          Container(
+                            width: 100,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              
                             ),
                           ),
                           Container(
@@ -150,22 +158,25 @@ class _ServicePageState extends State<ServicePage> {
                           onTap: (){
 
                           },
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: AppColor.mainColor,
-
+                          child: GestureDetector(
+                            onTap: openDialog,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: AppColor.mainColor,
+                          
+                              ),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.add_circle,size: 25,color: Colors.white,),
+                                  Text('  Add Service', style: TextStyle(color: Colors.white, fontSize: 20),)
+                                ],
+                              ),
+                              height: 50,
+                              width: 200,
                             ),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(Icons.add_circle,size: 25,color: Colors.white,),
-                                Text('  Add Service', style: TextStyle(color: Colors.white, fontSize: 20),)
-                              ],
-                            ),
-                            height: 50,
-                            width: 200,
                           ),
                         ),
                       ),
