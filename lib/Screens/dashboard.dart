@@ -31,9 +31,9 @@ class _DashboardPageState extends State<DashboardPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Comp('Orders','wysiwyg',06),
-                      Comp('Services','wysiwyg',12),
-                      Comp('Cleaners','wysiwyg',24),
+                      Comp('Orders','assets/img_5.png',10),
+                      Comp('Services','assets/img_6.png',12),
+                      Comp('Cleaners','assets/img_7.png',24),
 
                     ],
                   ),
@@ -50,7 +50,7 @@ class _DashboardPageState extends State<DashboardPage> {
 
 Comp(var _title, var _icon, var _count) {
   return Padding(
-    padding: const EdgeInsets.only(left:31.0, top:66.0,right:4.0),
+    padding: const EdgeInsets.only(left:31.0, top:40.0,right:4.0),
     child: Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -64,27 +64,37 @@ Comp(var _title, var _icon, var _count) {
           ),
         ],
       ),
-      height: 181,
-      width: 275,
+      height: 160,
+      width: 250,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 21.0, left: 30.0),
-            child: Text(_title, style: TextStyle(fontSize: 20, color: Color(0xFF7D7D7D)),),
+            padding: const EdgeInsets.only(top: 22.0, left: 30.0),
+            child: Text(_title, style: TextStyle(fontSize: 18, color: Color(0xFF7D7D7D)),),
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 30),
-                child: Text(_count.toString(),style: TextStyle(fontSize: 77,fontWeight: FontWeight.w700, color: AppColor.mainColor),),
+                padding: const EdgeInsets.only(left: 30,top: 15),
+                child: Text(_count.toString(),style: TextStyle(fontSize: 65,fontWeight: FontWeight.w700, color: AppColor.mainColor),),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 82,top: 15),
-                child: Icon(Icons.wysiwyg,size: 70,),
+                padding: const EdgeInsets.only(left: 70,top: 15),
+                child: Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+
+                    image: DecorationImage(
+                      image: AssetImage(_icon),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
               )
             ],
           ),

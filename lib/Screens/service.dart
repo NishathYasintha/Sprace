@@ -33,7 +33,7 @@ class _ServicePageState extends State<ServicePage> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 25,top: 50,right: 22),
+                        padding: const EdgeInsets.only(left: 25,top: 30,right: 22),
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
@@ -53,7 +53,7 @@ class _ServicePageState extends State<ServicePage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 0,top: 50,right: 22),
+                        padding: const EdgeInsets.only(left: 0,top: 30,right: 22),
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
@@ -94,7 +94,7 @@ class _ServicePageState extends State<ServicePage> {
                         child: SingleChildScrollView(
                           scrollDirection: Axis.vertical,
                           child: Padding(
-                            padding: const EdgeInsets.only(top:10 ,left:7 , right:7 ,bottom:10 ),
+                            padding: const EdgeInsets.only(top:10 ,left:20 , right:7 ,bottom:10 ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
