@@ -22,12 +22,12 @@ class _InOrderPageState extends State<InOrderPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SideMenu(),
+            SideMenu(value: 'Orders',),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                HeaderBar(),
+                HeaderBar(value: 'Orders',),
                 Padding(
                   padding: const EdgeInsets.only(left: 40, top: 15),
                   child: Container(
@@ -363,7 +363,7 @@ class _InOrderPageState extends State<InOrderPage> {
                                             color: Colors.green,
                                             borderRadius:
                                                 BorderRadius.circular(20)),
-                                        child: Center(child: Text("Accept")),
+                                        child: Center(child: Text("Accept", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),)),
                                       ),
                                     ),
                                     //reject button
@@ -374,7 +374,7 @@ class _InOrderPageState extends State<InOrderPage> {
                                           color: Colors.red,
                                           borderRadius:
                                               BorderRadius.circular(20)),
-                                      child: Center(child: Text("Reject")),
+                                      child: Center(child: Text("Reject", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),)),
                                     ),
                                   ]),
                                 ),
