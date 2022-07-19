@@ -22,100 +22,132 @@ class _CleanPageState extends State<CleanPage> {
         barrierDismissible: false, // user must tap button!
         builder: (BuildContext context) {
           return AlertDialog(
-            content: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10, bottom: 10),
-                    child: Container(
-                      child: Text(
-                        "Add Cleaner",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            content:  Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40)
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(height: 10,),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, bottom: 10),
+                      child: Container(
+                        child: Text(
+                          "Add Cleaner",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
-                  ),
-                  Container(
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Name"),
-                          TextField(
-                            keyboardType: TextInputType.emailAddress,
-                            decoration: InputDecoration(
-                              filled: true,
-                              hintText: 'Name',
-                              border: OutlineInputBorder(),
-                              contentPadding:
-                                  EdgeInsets.only(left: 10.0, top: 5.0),
-                              hintStyle: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color(0xFF4B506D).withOpacity(0.4)),
+                    Container(
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Name"),
+                            SizedBox(height: 8,),
+                            Container(
+                              height: 35,
+                              child: TextField(
+                                keyboardType: TextInputType.emailAddress,
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  hintText: 'Name',
+                                  border: OutlineInputBorder(),
+                                  contentPadding:
+                                      EdgeInsets.only(left: 10.0, top: 5.0),
+                                  hintStyle: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xFF4B506D).withOpacity(0.4)),
+                                ),
+                              ),
                             ),
-                          ),
-                          Text("Email"),
-                          TextField(
-                            keyboardType: TextInputType.emailAddress,
-                            decoration: InputDecoration(
-                              filled: true,
-                              hintText: 'Name',
-                              border: OutlineInputBorder(),
-                              contentPadding:
-                                  EdgeInsets.only(left: 10.0, top: 5.0),
-                              hintStyle: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color(0xFF4B506D).withOpacity(0.4)),
+                            SizedBox(height: 12,),
+                            Text("Email"),
+                            SizedBox(height: 8,),
+                            Container(
+                              height: 35,
+                              child: TextField(
+                                keyboardType: TextInputType.emailAddress,
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  hintText: 'Email',
+                                  border: OutlineInputBorder(),
+                                  contentPadding:
+                                      EdgeInsets.only(left: 10.0, top: 5.0),
+                                  hintStyle: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xFF4B506D).withOpacity(0.4)),
+                                ),
+                              ),
                             ),
-                          ),
-                          Text("Address"),
-                          TextField(
-                            keyboardType: TextInputType.emailAddress,
-                            decoration: InputDecoration(
-                              filled: true,
-                              hintText: 'Name',
-                              border: OutlineInputBorder(),
-                              contentPadding:
-                                  EdgeInsets.only(left: 10.0, top: 5.0),
-                              hintStyle: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color(0xFF4B506D).withOpacity(0.4)),
+                            SizedBox(height: 12,),
+                            Text("Address"),
+                            SizedBox(height: 8,),
+                            Container(
+                              height: 35,
+                              child: TextField(
+                                keyboardType: TextInputType.emailAddress,
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  hintText: 'Address',
+                                  border: OutlineInputBorder(),
+                                  contentPadding:
+                                      EdgeInsets.only(left: 10.0, top: 5.0),
+                                  hintStyle: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xFF4B506D).withOpacity(0.4)),
+                                ),
+                              ),
                             ),
-                          ),
-                          Text("Phone Number"),
-                          TextField(
-                            keyboardType: TextInputType.emailAddress,
-                            decoration: InputDecoration(
-                              filled: true,
-                              hintText: 'Name',
-                              border: OutlineInputBorder(),
-                              contentPadding:
-                                  EdgeInsets.only(left: 10.0, top: 5.0),
-                              hintStyle: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color(0xFF4B506D).withOpacity(0.4)),
+                            SizedBox(height: 12,),
+                            Text("Phone Number"),
+                            SizedBox(height: 8,),
+                            Container(
+                              height: 35,
+                              child: TextField(
+                                keyboardType: TextInputType.emailAddress,
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  hintText: 'Phone Number',
+                                  border: OutlineInputBorder(),
+                                  contentPadding:
+                                      EdgeInsets.only(left: 10.0, top: 5.0),
+                                  hintStyle: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xFF4B506D).withOpacity(0.4)),
+                                ),
+                              ),
                             ),
-                          ),
-                          Container(
-                            width: 100,
-                            height: 30,
-                            decoration: BoxDecoration(
-                              color: AppColor.mainColor,
-                              borderRadius: BorderRadius.circular(10),
+                            SizedBox(height: 10,),
+                            Row(
+                              children: [
+                                SizedBox(width: 63,),
+                                Container(
+                                  width: 100,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                    color: AppColor.mainColor,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Center(
+                                      child: Text(
+                                    "Submit",
+                                    style: TextStyle(color: Colors.white),
+                                  )),
+                                ),
+                              ],
                             ),
-                            child: Center(
-                                child: Text(
-                              "Submit",
-                              style: TextStyle(color: Colors.white),
-                            )),
-                          ),
-                        ]),
-                  ),
-                ],
+                          ]),
+                    ),
+                  ],
+                ),
               ),
             ),
           );
@@ -130,15 +162,12 @@ class _CleanPageState extends State<CleanPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SideMenu(
-              value: 'orders',
-            ),
+              value: 'cleaners',),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                HeaderBar(
-                  value: 'Orders',
-                ),
+                HeaderBar(value: 'Cleaners',),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -164,7 +193,7 @@ class _CleanPageState extends State<CleanPage> {
                                 color: Colors.white,
                               ),
                               Text(
-                                '  Add Service',
+                                '  Add Cleaner',
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 20),
                               ),
