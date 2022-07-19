@@ -25,7 +25,11 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFF94B447),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+<<<<<<< HEAD
       home: ServicePage(),
+=======
+      home: InOrderPage(),
+>>>>>>> 1a910e562f07d08b11c8b3c5d7e7c8611e3b36de
     );
   }
 }
