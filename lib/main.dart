@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:sprace/Screens/login.dart';
 import 'package:sprace/Screens/profile.dart';
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFF94B447),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: InOrderPage(),
+      home: ServicePage(),
     );
   }
 }

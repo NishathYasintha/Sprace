@@ -2,15 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:sprace/component/colors.dart';
 
 class HeaderBar extends StatefulWidget {
-  const HeaderBar({Key? key}) : super(key: key);
-
+  // const HeaderBar({Key? key}) : super(key: key);
+String value='';
+HeaderBar({required this.value});
   @override
-  State<HeaderBar> createState() => _HeaderBarState();
+  State<HeaderBar> createState() => _HeaderBarState(value);
 }
 
 class _HeaderBarState extends State<HeaderBar> {
+  String value='';
+  _HeaderBarState(this.value);
+
   final items = ['Admin', 'User', 'Cleaners'];
   String? selectedItem = 'Admin';
+
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +29,8 @@ class _HeaderBarState extends State<HeaderBar> {
             children: [
               SizedBox(width: 40,),
              Expanded(
-               child: Container(
-                child:Text("Dashboard",style: TextStyle(color: AppColor.textDark, fontSize: 30),)
-               ),
+               child:
+               Topic(value)
              ),
              Expanded(
              child: Container(
@@ -97,3 +101,8 @@ class _HeaderBarState extends State<HeaderBar> {
 }
 
 
+Topic(var _topic){
+  return Container(
+      child:Text(_topic,style: TextStyle(color: AppColor.textDark, fontSize: 30),)
+  );
+}

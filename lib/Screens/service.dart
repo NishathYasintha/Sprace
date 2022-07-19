@@ -22,18 +22,18 @@ class _ServicePageState extends State<ServicePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SideMenu(),
+              SideMenu(value: 'services',),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  HeaderBar(),
+                  HeaderBar(value: 'Services',),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 25,top: 50,right: 22),
+                        padding: const EdgeInsets.only(left: 25,top: 30,right: 22),
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
@@ -53,7 +53,7 @@ class _ServicePageState extends State<ServicePage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 0,top: 50,right: 22),
+                        padding: const EdgeInsets.only(left: 0,top: 30,right: 22),
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
@@ -94,7 +94,7 @@ class _ServicePageState extends State<ServicePage> {
                         child: SingleChildScrollView(
                           scrollDirection: Axis.vertical,
                           child: Padding(
-                            padding: const EdgeInsets.only(top:10 ,left:7 , right:7 ,bottom:10 ),
+                            padding: const EdgeInsets.only(top:10 ,left:20 , right:7 ,bottom:10 ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -203,33 +203,71 @@ Cleaner (var _gender, var _type, var _price) {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(height: 30,),
+                SizedBox(height: 20,),
                 Container(
                   child: Text(_gender,style: TextStyle(
-                    fontSize: 25, color: Color(0xFF000000)
+                    fontSize: 23, color: Color(0xFF000000)
                   ),),
                 ),
-                SizedBox(height: 8,),
+                SizedBox(height: 5,),
 
                 Container(
                     child: Text('Cleaner',style: TextStyle(
                         fontSize: 40, color: Color(0xFF000000)
                     ),)
                 ),
-                SizedBox(height: 8,),
+                SizedBox(height: 5,),
 
                 Container(
                   child: Text(_type,style: TextStyle(
                       fontSize: 15, color: Color(0xFF000000)
                   ),),
                 ),
-                SizedBox(height: 15,),
+                SizedBox(height: 10,),
 
                 Container(
                   child: Text('Rs\.'+ _price.toString(),style: TextStyle(fontWeight: FontWeight.w700,
-                      fontSize: 40, color: Colors.red
+                      fontSize: 35, color: Colors.red
                   ),),
                 ),
+                SizedBox(height: 10,),
+                Row(
+                  children: [
+                    Container(
+                      height: 40 ,
+                      width: 40,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow:[
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5), //color of shadow
+                            spreadRadius: 3,
+                            blurRadius: 10,
+                            offset: Offset(0.5, 3),
+                          ),
+                        ],
+                      ) ,
+                      child: Icon(Icons.edit),
+                    ),
+                    SizedBox(width: 30,),
+                    Container(
+                      height: 40 ,
+                      width: 40,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow:[
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5), //color of shadow
+                            spreadRadius: 3,
+                            blurRadius: 10,
+                            offset: Offset(0.5, 3),
+                          ),
+                        ],
+                      ) ,
+                      child: Icon(Icons.delete_forever,color: AppColor.rejectColor,),
+                    )
+                  ],
+                )
               ],
             ),
           )
