@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sprace/Screens/login.dart';
 
 import '../component/colors.dart';
 
@@ -416,12 +417,21 @@ class _SignupPageState extends State<SignupPage> {
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
-                            Text(
-                              "Log In",
-                              style: TextStyle(
-                                color: AppColor.mainColor,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
+                            GestureDetector(
+                              onTap: (){
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (BuildContext context) => LoginPage(),
+                                    ));
+                              },
+                              child: Text(
+                                "Log In",
+                                style: TextStyle(
+                                  color: AppColor.mainColor,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
                             )
                           ],

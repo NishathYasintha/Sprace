@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sprace/Screens/dashboard.dart';
+import 'package:sprace/Screens/signup.dart';
 import 'package:sprace/component/colors.dart';
 import '../main.dart';
 
@@ -157,6 +159,41 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     SizedBox(
                       height: 32,
+                    ),
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) => DashboardPage(),
+                            ));
+                      },
+                      child: Container(
+
+                        height: 48,
+                        width: 316,
+                        color: AppColor.mainColor,
+                        child: Center(child: Text('Log In',style: TextStyle(color: Colors.white, fontSize: 14, fontFamily: 'mulish'),)),
+                      ),
+                    ),
+                    SizedBox(height: 32,),
+                    Center(
+                        child:Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Dont have an account?",style: TextStyle(color: Color(0xFF9FA2B4) , fontSize: 14,fontWeight: FontWeight.w400,),),
+                        GestureDetector(
+                          onTap: (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) => SignupPage(),
+                                ));
+                          },
+                            child: Text("Sign Up",style: TextStyle(color: AppColor.mainColor , fontSize: 14,fontWeight: FontWeight.w400,),))
+                      ],
+                    ),
                     ),
                     Center(
                       child: Row(

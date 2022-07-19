@@ -34,22 +34,27 @@ class _ServicePageState extends State<ServicePage> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 25,top: 30,right: 22),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: AppColor.mainColor,
+                        child: GestureDetector(
+                          onTap: (){
 
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: AppColor.mainColor,
+
+                            ),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.add_circle,size: 25,color: Colors.white,),
+                                Text('  Add Service', style: TextStyle(color: Colors.white, fontSize: 20),)
+                              ],
+                            ),
+                            height: 50,
+                            width: 200,
                           ),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.add_circle,size: 25,color: Colors.white,),
-                              Text('  Add Service', style: TextStyle(color: Colors.white, fontSize: 20),)
-                            ],
-                          ),
-                          height: 50,
-                          width: 200,
                         ),
                       ),
                       Padding(
