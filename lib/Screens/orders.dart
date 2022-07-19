@@ -20,12 +20,12 @@ class _OrdersPageState extends State<OrdersPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SideMenu(),
+            SideMenu(value: 'orders',),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                HeaderBar(),
+                HeaderBar(value: 'Orders',),
                 Padding(
                   padding: const EdgeInsets.only(left: 40,top: 15),
                   child: Container(
