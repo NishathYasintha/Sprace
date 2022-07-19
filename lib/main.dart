@@ -6,6 +6,7 @@ import 'package:sprace/Screens/profile.dart';
 import 'package:sprace/Screens/service.dart';
 
 import 'Screens/cleaners.dart';
+import 'Screens/inorder.dart';
 import 'Screens/orders.dart';
 import 'Screens/signup.dart';
 import 'Screens/dashboard.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFF94B447),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginPage(),
+      home: InOrderPage(),
     );
   }
 }
