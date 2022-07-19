@@ -150,21 +150,23 @@ class _ServicePageState extends State<ServicePage> {
                             ),
                             Container(
                               height: 100,
-                              width: 20,
+                              width: 50,
                               decoration: BoxDecoration(),
                               child: Container(
                                   child: Column(
                                 children: [
                                   //image
                                   Container(
-                                    width: 20,
-                                    height: 20,
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        image: AssetImage("assets/img_7.png"),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
+                                    // color: Colors.red,
+                                    width: 50,
+                                    height: 50,
+                                    // decoration: BoxDecoration(
+                                    //   // color: Colors.red,
+                                    //   image: DecorationImage(
+                                    //     image: AssetImage("assets/img_8.png"),
+                                    //     fit: BoxFit.cover,
+                                    //   ),
+                                    // ),
                                   ),
                                   //text
                                   Container(),
