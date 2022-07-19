@@ -30,18 +30,38 @@ class _ProfilePageState extends State<ProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                    HeaderBar(value: 'Profile',),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    // children: [
-                    //   Comp('Orders','wysiwyg',06),
-                    //   Comp('Services','wysiwyg',12),
-                    //   Comp('Cleaners','wysiwyg',24),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width - 350,
+                      height: MediaQuery.of(context).size.height - 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
 
-                    // ],
-                    children: [
-                      UserDetails(),
-                    ],
+                        color: Colors.white,
+                        boxShadow:[
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.2), //color of shadow
+                            spreadRadius: 5,
+                            blurRadius: 10,
+                            offset: Offset(0.5, 1),
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        // children: [
+                        //   Comp('Orders','wysiwyg',06),
+                        //   Comp('Services','wysiwyg',12),
+                        //   Comp('Cleaners','wysiwyg',24),
+
+                        // ],
+                        children: [
+                          UserDetails(),
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -66,7 +86,7 @@ UserDetails() {
             Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 500.0, bottom: 7),
+                  padding: const EdgeInsets.only(left: 500.0,top: 30, bottom: 7),
                   child: const Text(
                     "Account Information",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -367,7 +387,7 @@ UserDetails() {
                                               color: Colors.white))),
                                 ),
                               ),
-                              
+
                             ],
                           ),
                         ),
