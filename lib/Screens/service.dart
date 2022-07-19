@@ -15,6 +15,118 @@ class ServicePage extends StatefulWidget {
 class _ServicePageState extends State<ServicePage> {
   @override
   Widget build(BuildContext context) {
+
+
+ Future<void> openDialog() async {
+      return showDialog<void>(
+        context: context,
+        barrierDismissible: false, // user must tap button!
+        builder: (BuildContext context) {
+          return AlertDialog(
+            content: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10, bottom: 10),
+                    child: Container(
+                      child: Text(
+                        "Add Cleaner",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Name"),
+                          TextField(
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: InputDecoration(
+                              filled: true,
+                              hintText: 'Name',
+                              border: OutlineInputBorder(),
+                              contentPadding:
+                                  EdgeInsets.only(left: 10.0, top: 5.0),
+                              hintStyle: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF4B506D).withOpacity(0.4)),
+                            ),
+                          ),
+                          Text("Email"),
+                          TextField(
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: InputDecoration(
+                              filled: true,
+                              hintText: 'Name',
+                              border: OutlineInputBorder(),
+                              contentPadding:
+                                  EdgeInsets.only(left: 10.0, top: 5.0),
+                              hintStyle: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF4B506D).withOpacity(0.4)),
+                            ),
+                          ),
+                          Text("Address"),
+                          TextField(
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: InputDecoration(
+                              filled: true,
+                              hintText: 'Name',
+                              border: OutlineInputBorder(),
+                              contentPadding:
+                                  EdgeInsets.only(left: 10.0, top: 5.0),
+                              hintStyle: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF4B506D).withOpacity(0.4)),
+                            ),
+                          ),
+                          Text("Phone Number"),
+                          TextField(
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: InputDecoration(
+                              filled: true,
+                              hintText: 'Name',
+                              border: OutlineInputBorder(),
+                              contentPadding:
+                                  EdgeInsets.only(left: 10.0, top: 5.0),
+                              hintStyle: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF4B506D).withOpacity(0.4)),
+                            ),
+                          ),
+                          Container(
+                            width: 100,
+                            height: 30,
+                            decoration: BoxDecoration(
+                              color: AppColor.mainColor,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Center(
+                                child: Text(
+                              "Submit",
+                              style: TextStyle(color: Colors.white),
+                            )),
+                          ),
+                        ]),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      );
+    }
+
+
+
+
     return Scaffold(
       body: SafeArea(
         child: Container(

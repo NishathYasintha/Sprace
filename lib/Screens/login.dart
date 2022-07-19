@@ -133,32 +133,9 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       height: 24,
                     ),
-                    Container(
-                      height: 48,
-                      width: 316,
-                      child: Center(
-                          child: Text(
-                        'Log In',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                            fontFamily: 'mulish'),
-                      )),
-                      decoration: BoxDecoration(
-                        color: AppColor.mainColor,
-                        boxShadow: [
-                          BoxShadow(
-                            color:
-                                Colors.grey.withOpacity(0.7), //color of shadow
-                            spreadRadius: 5,
-                            blurRadius: 10,
-                            offset: Offset(0.5, 1),
-                          )
-                        ],
-                      ),
-                    ),
+                    
                     SizedBox(
-                      height: 32,
+                      height: 24,
                     ),
                     GestureDetector(
                       onTap: (){
@@ -195,30 +172,7 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                     ),
-                    Center(
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Dont have an account?",
-                            style: TextStyle(
-                              color: Color(0xFF9FA2B4),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          Text(
-                            "Sign Up",
-                            style: TextStyle(
-                              color: AppColor.mainColor,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
+                   
                   ],
                 ),
               ),
