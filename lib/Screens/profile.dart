@@ -4,7 +4,7 @@ import 'dart:js';
 import 'package:flutter/material.dart';
 
 import '../component/colors.dart';
-import '../component/header.dart';
+// import '../component/header.dart';
 import '../component/sidemenu.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -17,53 +17,46 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
+    return Container(
+      child: SafeArea(
         child: Container(
-          child: Row(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SideMenu(value: 'profile',),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                   HeaderBar(value: 'Profile',),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width - 350,
-                      height: MediaQuery.of(context).size.height - 100,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
+               // HeaderBar(value: 'Profile',),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Container(
+                  width: MediaQuery.of(context).size.width - 350,
+                  height: MediaQuery.of(context).size.height - 100,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
 
-                        color: Colors.white,
-                        boxShadow:[
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.2), //color of shadow
-                            spreadRadius: 5,
-                            blurRadius: 10,
-                            offset: Offset(0.5, 1),
-                          ),
-                        ],
+                    color: Colors.white,
+                    boxShadow:[
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2), //color of shadow
+                        spreadRadius: 5,
+                        blurRadius: 10,
+                        offset: Offset(0.5, 1),
                       ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        // children: [
-                        //   Comp('Orders','wysiwyg',06),
-                        //   Comp('Services','wysiwyg',12),
-                        //   Comp('Cleaners','wysiwyg',24),
-
-                        // ],
-                        children: [
-                          UserDetails(),
-                        ],
-                      ),
-                    ),
+                    ],
                   ),
-                ],
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    // children: [
+                    //   Comp('Orders','wysiwyg',06),
+                    //   Comp('Services','wysiwyg',12),
+                    //   Comp('Cleaners','wysiwyg',24),
+
+                    // ],
+                    children: [
+                      UserDetails(),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),

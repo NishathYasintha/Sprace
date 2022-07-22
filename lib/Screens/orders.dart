@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sprace/component/colors.dart';
 
-import '../component/header.dart';
+// import '../component/header.dart';
 import '../component/sidemenu.dart';
 
 class OrdersPage extends StatefulWidget {
@@ -49,12 +49,12 @@ class _OrdersPageState extends State<OrdersPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SideMenu(value: 'orders',),
+            // SideMenu(value: 'orders',),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                HeaderBar(value: 'Orders',),
+                // HeaderBar(value: 'Orders',),
                 Padding(
                   padding: const EdgeInsets.only(left: 40,top: 15),
                   child: Container(

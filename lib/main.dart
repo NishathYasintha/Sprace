@@ -10,6 +10,7 @@ import 'Screens/inorder.dart';
 import 'Screens/orders.dart';
 import 'Screens/signup.dart';
 import 'Screens/dashboard.dart';
+// import 'component/sidemenu.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFF94B447),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const OrdersPage(),
+      home: LoginPage(),
     );
   }
 }

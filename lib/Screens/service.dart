@@ -1,8 +1,9 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sprace/component/colors.dart';
 
-import '../component/header.dart';
+// import '../component/header.dart';
 import '../component/sidemenu.dart';
 
 class ServicePage extends StatefulWidget {
@@ -14,6 +15,8 @@ class ServicePage extends StatefulWidget {
 
 class _ServicePageState extends State<ServicePage> {
   @override
+  final items = ['Admin', 'User', 'Cleaners'];
+  String? selectedItem = 'Admin';
   Widget build(BuildContext context) {
     Future<void> openDialog() async {
       return showDialog<void>(
@@ -72,25 +75,26 @@ class _ServicePageState extends State<ServicePage> {
                             SizedBox(
                               height: 12,
                             ),
-                            Text("Email"),
+                            Text("Category"),
                             SizedBox(
                               height: 8,
                             ),
                             Container(
+                              width: 300,
                               height: 35,
-                              child: TextField(
-                                keyboardType: TextInputType.emailAddress,
-                                decoration: InputDecoration(
-                                  filled: true,
-                                  hintText: 'Email',
-                                  border: OutlineInputBorder(),
-                                  contentPadding:
-                                      EdgeInsets.only(left: 10.0, top: 5.0),
-                                  hintStyle: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400,
-                                      color:
-                                          Color(0xFF4B506D).withOpacity(0.4)),
+                              child:DropdownButtonHideUnderline(
+                                child: DropdownButton<String>(
+                                  underline: null,
+                                  value: selectedItem,
+                                  items: items
+                                      .map((item)=> DropdownMenuItem<String>(
+                                      value: item,
+                                      child: Text(item)
+                                  )
+                                  ).toList(),
+                                  onChanged: (item) =>setState(() {
+                                    selectedItem=item;
+                                  }),
                                 ),
                               ),
                             ),
@@ -144,34 +148,50 @@ class _ServicePageState extends State<ServicePage> {
                                 ),
                               ),
                             ),
+                            SizedBox(
+                              height: 15,
+                            ),
                             Text("Upload Image"),
                             SizedBox(
                               height: 8,
                             ),
                             Container(
                               height: 100,
-                              width: 50,
+                              width: 300,
                               decoration: BoxDecoration(),
-                              child: Container(
-                                  child: Column(
-                                children: [
-                                  //image
-                                  Container(
-                                    // color: Colors.red,
-                                    width: 50,
-                                    height: 50,
-                                    // decoration: BoxDecoration(
-                                    //   // color: Colors.red,
-                                    //   image: DecorationImage(
-                                    //     image: AssetImage("assets/img_8.png"),
-                                    //     fit: BoxFit.cover,
-                                    //   ),
-                                    // ),
-                                  ),
-                                  //text
-                                  Container(),
-                                ],
-                              )),
+                              child: DottedBorder(
+                                child: Container(
+                                    child: Center(
+                                      child: Column(
+                                  children: [
+                                      //image
+                                      Container(
+                                        // color: Colors.red,
+                                        width: 50,
+                                        height: 50,
+                                        decoration: BoxDecoration(
+                                          // color: Colors.red,
+                                          image: DecorationImage(
+                                            image: AssetImage("assets/img_8.png"),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                      //text
+                                      Container(
+                                        child: Text('Drag and drop here',style: TextStyle(
+                                          color: Colors.black45,fontSize: 18
+                                        ),),
+                                      ),
+                                    Container(
+                                      child: Text(' or brows',style: TextStyle(
+                                          color: Colors.black45,fontSize: 18
+                                      ),),
+                                    ),
+                                  ],
+                                ),
+                                    )),
+                              ),
                             ),
                             SizedBox(
                               height: 10,
@@ -179,7 +199,7 @@ class _ServicePageState extends State<ServicePage> {
                             Row(
                               children: [
                                 SizedBox(
-                                  width: 63,
+                                  width: 90,
                                 ),
                                 Container(
                                   width: 100,
@@ -207,80 +227,43 @@ class _ServicePageState extends State<ServicePage> {
       );
     }
 
-    return Scaffold(
-      body: SafeArea(
+    return Container(
+      child: SafeArea(
         child: Container(
-          child: Row(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SideMenu(
-                value: 'services',
-              ),
-              Column(
+              // HeaderBar(
+                // value: 'Services',
+              // ),
+              Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  HeaderBar(
-                    value: 'Services',
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(left: 25, top: 30, right: 22),
-                        child: GestureDetector(
-                          onTap: () {},
-                          child: GestureDetector(
-                            onTap: openDialog,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: AppColor.mainColor,
-                              ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.add_circle,
-                                    size: 25,
-                                    color: Colors.white,
-                                  ),
-                                  Text(
-                                    '  Add Service',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 20),
-                                  )
-                                ],
-                              ),
-                              height: 50,
-                              width: 200,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(left: 0, top: 30, right: 22),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 25, top: 30, right: 22),
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: GestureDetector(
+                        onTap: openDialog,
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: Color(0xFFF94F4F),
+                            color: AppColor.mainColor,
                           ),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(
-                                Icons.delete_forever,
+                                Icons.add_circle,
                                 size: 25,
                                 color: Colors.white,
                               ),
                               Text(
-                                '  Remove All',
+                                '  Add Service',
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 20),
                               )
@@ -290,77 +273,105 @@ class _ServicePageState extends State<ServicePage> {
                           width: 200,
                         ),
                       ),
-                    ],
+                    ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 25, top: 22),
+                    padding:
+                        const EdgeInsets.only(left: 0, top: 30, right: 22),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color:
-                                Colors.grey.withOpacity(0.2), //color of shadow
-                            spreadRadius: 5,
-                            blurRadius: 10,
-                            offset: Offset(0.5, 1),
+                        borderRadius: BorderRadius.circular(20),
+                        color: Color(0xFFF94F4F),
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.delete_forever,
+                            size: 25,
+                            color: Colors.white,
                           ),
+                          Text(
+                            '  Remove All',
+                            style: TextStyle(
+                                color: Colors.white, fontSize: 20),
+                          )
                         ],
                       ),
-                      width: MediaQuery.of(context).size.width - 350,
-                      height: MediaQuery.of(context).size.height - 220,
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.vertical,
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                                top: 10, left: 20, right: 7, bottom: 10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
+                      height: 50,
+                      width: 200,
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 25, top: 22),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color:
+                            Colors.grey.withOpacity(0.2), //color of shadow
+                        spreadRadius: 5,
+                        blurRadius: 10,
+                        offset: Offset(0.5, 1),
+                      ),
+                    ],
+                  ),
+                  width: MediaQuery.of(context).size.width - 350,
+                  height: MediaQuery.of(context).size.height - 220,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            top: 10, left: 20, right: 7, bottom: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            // Container(
+                            //   child: GridView(
+                            //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 50, crossAxisSpacing: 100),
+                            //     scrollDirection: Axis.vertical,
+                            //     shrinkWrap: true,
+                            //     children: [
+                            //       Cleaner('Women', 'Washroom cleaning', 50000),
+                            //       Cleaner('Women', 'Washroom cleaning', 50000),
+                            //       Cleaner('Women', 'Washroom cleaning', 50000),
+                            //       Cleaner('Women', 'Washroom cleaning', 50000),
+                            //     ],
+                            //   ),
+                            // ),
+                            //***************************
+                            Row(
                               children: [
-                                // Container(
-                                //   child: GridView(
-                                //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 50, crossAxisSpacing: 100),
-                                //     scrollDirection: Axis.vertical,
-                                //     shrinkWrap: true,
-                                //     children: [
-                                //       Cleaner('Women', 'Washroom cleaning', 50000),
-                                //       Cleaner('Women', 'Washroom cleaning', 50000),
-                                //       Cleaner('Women', 'Washroom cleaning', 50000),
-                                //       Cleaner('Women', 'Washroom cleaning', 50000),
-                                //     ],
-                                //   ),
-                                // ),
-                                //***************************
-                                Row(
-                                  children: [
-                                    Cleaner(
-                                        'Women', 'Washroom cleaning', 50000),
-                                    Cleaner(
-                                        'Women', 'Washroom cleaning', 50000),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Cleaner(
-                                        'Women', 'Washroom cleaning', 50000),
-                                    Cleaner(
-                                        'Women', 'Washroom cleaning', 50000),
-                                  ],
-                                ),
-                                //  *****************************
+                                Cleaner(
+                                    'Women', 'Washroom cleaning', 50000),
+                                Cleaner(
+                                    'Women', 'Washroom cleaning', 50000),
                               ],
                             ),
-                          ),
+                            Row(
+                              children: [
+                                Cleaner(
+                                    'Women', 'Washroom cleaning', 50000),
+                                Cleaner(
+                                    'Women', 'Washroom cleaning', 50000),
+                              ],
+                            ),
+                            //  *****************************
+                          ],
                         ),
                       ),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                ),
+              )
             ],
           ),
         ),
