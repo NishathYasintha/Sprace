@@ -43,142 +43,135 @@ class _OrdersPageState extends State<OrdersPage> {
     if(_filterBy == 3){
       weightRejected = FontWeight.w700;
     }
-    return Scaffold(
-      body: SafeArea(
-        child: Row(
+    return Container(
+      child: SafeArea(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            // SideMenu(value: 'orders',),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                // HeaderBar(value: 'Orders',),
-                Padding(
-                  padding: const EdgeInsets.only(left: 40,top: 15),
-                  child: Container(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
+            // HeaderBar(value: 'Orders',),
+            Padding(
+              padding: const EdgeInsets.only(left: 40,top: 15),
+              child: Container(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
 
-                      children: [
-                        GestureDetector(
-                          onTap:(()=>{
-                            _filterBy = 0,
-                            filter(_filterBy),
-                          }),
-                          child: Container(
-                            child: Text('All(2000)',style: TextStyle(fontSize: 17, fontWeight: weightAll),),
-                          ),
-                        ),
-                        Text('    |    ',style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),),
-                        GestureDetector(
-                          onTap: (()=>{
-                            _filterBy = 1,
-                            filter(_filterBy),
-                          }),
-                          child: Container(
-                            child: Text('Processing(100)',style: TextStyle(fontSize: 17, fontWeight: weightProcessing),),
-                          ),
-                        ),
-                        Text('    |    ',style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),),
-                        GestureDetector(
-                          onTap: (()=>{
-                            _filterBy = 2,
-                            filter(_filterBy),
-                          }),
-                          child: Container(
-                            child: Text('Completed(20)',style: TextStyle(fontSize: 17, fontWeight: weightCompleted),),
-                          ),
-                        ),
-                        Text('    |    ',style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),),
-                        GestureDetector(
-                          onTap: (()=>{
-                            _filterBy = 3,
-                            filter(_filterBy),
-                          }),
-                          child:Container(
-                          child: Text('Rejected(2)',style: TextStyle(fontSize: 17, fontWeight: weightRejected),),
-                        ),
-                        ),
-                        
-                      ],
+                  children: [
+                    GestureDetector(
+                      onTap:(()=>{
+                        _filterBy = 0,
+                        filter(_filterBy),
+                      }),
+                      child: Container(
+                        child: Text('All(2000)',style: TextStyle(fontSize: 17, fontWeight: weightAll),),
+                      ),
                     ),
-                  ),
+                    Text('    |    ',style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),),
+                    GestureDetector(
+                      onTap: (()=>{
+                        _filterBy = 1,
+                        filter(_filterBy),
+                      }),
+                      child: Container(
+                        child: Text('Processing(100)',style: TextStyle(fontSize: 17, fontWeight: weightProcessing),),
+                      ),
+                    ),
+                    Text('    |    ',style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),),
+                    GestureDetector(
+                      onTap: (()=>{
+                        _filterBy = 2,
+                        filter(_filterBy),
+                      }),
+                      child: Container(
+                        child: Text('Completed(20)',style: TextStyle(fontSize: 17, fontWeight: weightCompleted),),
+                      ),
+                    ),
+                    Text('    |    ',style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),),
+                    GestureDetector(
+                      onTap: (()=>{
+                        _filterBy = 3,
+                        filter(_filterBy),
+                      }),
+                      child:Container(
+                      child: Text('Rejected(2)',style: TextStyle(fontSize: 17, fontWeight: weightRejected),),
+                    ),
+                    ),
+
+                  ],
                 ),
-                //*******************
-                Padding(
-                  padding: const EdgeInsets.only(left: 25,top: 22),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,borderRadius: BorderRadius.circular(10),
-                      boxShadow:[
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.2), //color of shadow
-                          spreadRadius: 5,
-                          blurRadius: 10,
-                          offset: Offset(0.5, 1),
-                        ),
-                      ],
+              ),
+            ),
+            //*******************
+            Padding(
+              padding: const EdgeInsets.only(left: 25,top: 22),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,borderRadius: BorderRadius.circular(10),
+                  boxShadow:[
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2), //color of shadow
+                      spreadRadius: 5,
+                      blurRadius: 10,
+                      offset: Offset(0.5, 1),
                     ),
-                    width: MediaQuery.of(context).size.width - 350,
-                    height: MediaQuery.of(context).size.height - 170,
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: Padding(
-                          padding: const EdgeInsets.only(top:10 ,left:7 , right:7 ,bottom:10 ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 20,top: 30),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 30,top: 30),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        child: Text('Order',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
-                                      ),
-                                      SizedBox(width: 270.0,),
-                                      Container(
-                                        child: Text('Date',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
-
-                                      ),
-                                      SizedBox(width: 270.0,),
-                                      Container(
-                                        child: Text('Status',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
-
-                                      ),
-                                      SizedBox(width: 270.0,),
-                                      Container(
-                                        child: Text('Price'.toString(),style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
-                                      ),
-                                    ],
+                  ],
+                ),
+                width: MediaQuery.of(context).size.width - 350,
+                height: MediaQuery.of(context).size.height - 170,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top:10 ,left:7 , right:7 ,bottom:10 ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20,top: 30),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 30,top: 30),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    child: Text('Order',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
                                   ),
-                                ),
-                                SizedBox(height: 20,),
-                                OrderDerails('Order1','Aug 4,2021', 'completed', 3000,filterType: _filterBy),
-                                OrderDerails('Order2','Aug 4,2021', 'processing', 3000, filterType: _filterBy),
-                                OrderDerails('Order1','Aug 4,2021', 'completed', 3000, filterType: _filterBy),
-                                OrderDerails('Order3','Aug 4,2021', 'rejected', 3000, filterType: _filterBy),
+                                  SizedBox(width: 270.0,),
+                                  Container(
+                                    child: Text('Date',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
 
+                                  ),
+                                  SizedBox(width: 270.0,),
+                                  Container(
+                                    child: Text('Status',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
 
-
-                              ],
+                                  ),
+                                  SizedBox(width: 270.0,),
+                                  Container(
+                                    child: Text('Price'.toString(),style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
+                            SizedBox(height: 20,),
+                            OrderDerails('Order1','Aug 4,2021', 'completed', 3000,filterType: _filterBy),
+                            OrderDerails('Order2','Aug 4,2021', 'processing', 3000, filterType: _filterBy),
+                            OrderDerails('Order1','Aug 4,2021', 'completed', 3000, filterType: _filterBy),
+                            OrderDerails('Order3','Aug 4,2021', 'rejected', 3000, filterType: _filterBy),
+
+
+
+                          ],
                         ),
                       ),
                     ),
                   ),
-                )
-                //****************
-              ],
+                ),
+              ),
             )
+            //****************
           ],
         ),
       ),
