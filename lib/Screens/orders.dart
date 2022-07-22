@@ -12,8 +12,37 @@ class OrdersPage extends StatefulWidget {
 }
 
 class _OrdersPageState extends State<OrdersPage> {
+  var _filterBy = 0;
+
+  
   @override
   Widget build(BuildContext context) {
+
+    filter(var filterBy){
+    print(filterBy);
+    setState(() {
+      
+    });
+  }
+
+    var weightAll=FontWeight.w400;
+    var weightProcessing=FontWeight.w400;
+    var weightCompleted=FontWeight.w400;
+    var weightRejected=FontWeight.w400;
+
+    if(_filterBy == 0){
+      weightAll = FontWeight.w700;
+    }
+    if(_filterBy == 1){
+      weightProcessing = FontWeight.w700;
+    }
+    if(_filterBy == 2){
+      weightCompleted = FontWeight.w700;
+      
+    }
+    if(_filterBy == 3){
+      weightRejected = FontWeight.w700;
+    }
     return Scaffold(
       body: SafeArea(
         child: Row(
@@ -34,21 +63,46 @@ class _OrdersPageState extends State<OrdersPage> {
                       mainAxisAlignment: MainAxisAlignment.start,
 
                       children: [
-                        Container(
-                          child: Text('All(2000)',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
+                        GestureDetector(
+                          onTap:(()=>{
+                            _filterBy = 0,
+                            filter(_filterBy),
+                          }),
+                          child: Container(
+                            child: Text('All(2000)',style: TextStyle(fontSize: 17, fontWeight: weightAll),),
+                          ),
                         ),
                         Text('    |    ',style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),),
-                        Container(
-                          child: Text('Processing(100)',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),),
+                        GestureDetector(
+                          onTap: (()=>{
+                            _filterBy = 1,
+                            filter(_filterBy),
+                          }),
+                          child: Container(
+                            child: Text('Processing(100)',style: TextStyle(fontSize: 17, fontWeight: weightProcessing),),
+                          ),
                         ),
                         Text('    |    ',style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),),
-                        Container(
-                          child: Text('Completed(20)',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),),
+                        GestureDetector(
+                          onTap: (()=>{
+                            _filterBy = 2,
+                            filter(_filterBy),
+                          }),
+                          child: Container(
+                            child: Text('Completed(20)',style: TextStyle(fontSize: 17, fontWeight: weightCompleted),),
+                          ),
                         ),
                         Text('    |    ',style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),),
-                        Container(
-                          child: Text('Rejected(2)',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),),
+                        GestureDetector(
+                          onTap: (()=>{
+                            _filterBy = 3,
+                            filter(_filterBy),
+                          }),
+                          child:Container(
+                          child: Text('Rejected(2)',style: TextStyle(fontSize: 17, fontWeight: weightRejected),),
                         ),
+                        ),
+                        
                       ],
                     ),
                   ),
@@ -107,10 +161,10 @@ class _OrdersPageState extends State<OrdersPage> {
                                   ),
                                 ),
                                 SizedBox(height: 20,),
-                                OrderDerails('Order1','Aug 4,2021', 'completed', 3000),
-                                OrderDerails('Order2','Aug 4,2021', 'processing', 3000),
-                                OrderDerails('Order1','Aug 4,2021', 'completed', 3000),
-                                OrderDerails('Order3','Aug 4,2021', 'rejected', 3000),
+                                OrderDerails('Order1','Aug 4,2021', 'completed', 3000,filterType: _filterBy),
+                                OrderDerails('Order2','Aug 4,2021', 'processing', 3000, filterType: _filterBy),
+                                OrderDerails('Order1','Aug 4,2021', 'completed', 3000, filterType: _filterBy),
+                                OrderDerails('Order3','Aug 4,2021', 'rejected', 3000, filterType: _filterBy),
 
 
 
@@ -133,7 +187,7 @@ class _OrdersPageState extends State<OrdersPage> {
   }
 }
 
-OrderDerails (var _order, var _date, var _status, var _price) {
+OrderDerails (var _order, var _date, var _status, var _price,{int filterType = 0}) {
   double _x=270.0;
   var _c;
 
@@ -147,7 +201,84 @@ OrderDerails (var _order, var _date, var _status, var _price) {
      _c = AppColor.rejectColor;
   }
 
+  if(filterType == 0){
+    return Container(
+    height: 50,
+      width: 1080,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black12)
+      ),
+      // color: Colors.red,
+      child: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 30),
+            child: Container(
+              width: 120,
+                  child: Text(_order,style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
+            ),
+          ),
+          SizedBox(width: _x-100,),
+          Container(
+            width: 120,
+                child: Text(_date,style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
 
+          ),
+          SizedBox(width: _x-90,),
+          Container(
+            width: 100,
+            height: 40,
+            decoration: BoxDecoration(
+              color: _c,
+              borderRadius: BorderRadius.circular(10)
+            ),
+            child: Center(child: Text(_status,style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),)),
+
+          ),
+          SizedBox(width: _x-30,),
+          Container(
+            width: 100,
+                child: Text(_price.toString(),style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
+          ),
+        ],
+      ),
+    );
+  }
+  else if(filterType == 1){
+    if(_status=='processing'){
+      return Container(
+        child: loadDetails(_order, _date, _status, _price, _x, _c),
+      );
+    }
+    else{
+      return Container();
+    }
+    
+  }
+  else if(filterType == 2){
+    if(_status == 'completed'){
+      return Container(
+        child: loadDetails(_order, _date, _status, _price, _x, _c),
+      );
+    }
+    else{
+      return Container();
+    }
+  }
+  else if(filterType == 3){
+    if(_status=='rejected'){
+      return Container(
+        child: loadDetails(_order, _date, _status, _price, _x, _c),
+      );
+    }
+    else{
+      return Container();
+    }
+  } 
+}
+
+loadDetails(var _order, var _date, var _status, var _price, var _x, var _c){
+  
   return Container(
     height: 50,
       width: 1080,
@@ -189,5 +320,4 @@ OrderDerails (var _order, var _date, var _status, var _price) {
         ],
       ),
     );
-
 }
