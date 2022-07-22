@@ -50,34 +50,29 @@ class _SideMenuState extends State<SideMenu> {
       setState(() {
         _page = _npage;
       });
-      debugPrint('Pressed dash');
     }
     else if(_npage == 'Orders'){
       setState(() {
         _page = 'Orders';
       });
-      debugPrint('Pressed orders');
 
     }
     else if(_npage == 'Cleaners'){
       setState(() {
         _page = 'Cleaners';
       });
-      debugPrint('Pressed Cleaners');
 
     }
     else if(_npage == 'Services'){
       setState(() {
         _page = 'Services';
       });
-      debugPrint('Pressed Services');
 
     }
     else if(_npage == 'Profile'){
       setState(() {
         _page = 'Profile';
       });
-      debugPrint('Pressed Profile');
 
     }
   }
