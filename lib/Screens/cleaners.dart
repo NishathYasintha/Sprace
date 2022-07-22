@@ -3,7 +3,7 @@ import 'dart:js';
 import 'package:flutter/material.dart';
 import 'package:sprace/component/colors.dart';
 
-import '../component/header.dart';
+// import '../component/header.dart';
 import '../component/sidemenu.dart';
 
 class CleanPage extends StatefulWidget {
@@ -155,194 +155,186 @@ class _CleanPageState extends State<CleanPage> {
       );
     }
 
-    return Scaffold(
-      body: SafeArea(
-        child: Row(
+    return Container(
+      child: SafeArea(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SideMenu(
-              value: 'cleaners',),
-            Column(
+            // HeaderBar(value: 'Cleaners',),
+            Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                HeaderBar(value: 'Cleaners',),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(left: 25, top: 30, right: 22),
-                      child: GestureDetector(
-                        onTap: openDialog,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: AppColor.mainColor,
-                          ),
-                          // ignore: sort_child_properties_last
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.add_circle,
-                                size: 25,
-                                color: Colors.white,
-                              ),
-                              Text(
-                                '  Add Cleaner',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 20),
-                              ),
-                              //test
-                            ],
-                          ),
-                          height: 50,
-                          width: 200,
-                        ),
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 25, top: 30, right: 22),
+                  child: GestureDetector(
+                    onTap: openDialog,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: AppColor.mainColor,
                       ),
+                      // ignore: sort_child_properties_last
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.add_circle,
+                            size: 25,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            '  Add Cleaner',
+                            style: TextStyle(
+                                color: Colors.white, fontSize: 20),
+                          ),
+                          //test
+                        ],
+                      ),
+                      height: 50,
+                      width: 200,
                     ),
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(left: 0, top: 30, right: 22),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color(0xFFF94F4F),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 0, top: 30, right: 22),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Color(0xFFF94F4F),
+                    ),
+                    height: 50,
+                    width: 200,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.delete_forever,
+                          size: 25,
+                          color: Colors.white,
                         ),
-                        height: 50,
-                        width: 200,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
+                        Text(
+                          '  Remove All',
+                          style:
+                              TextStyle(color: Colors.white, fontSize: 20),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            //*******************
+            Padding(
+              padding: const EdgeInsets.only(left: 25, top: 22),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2), //color of shadow
+                      spreadRadius: 5,
+                      blurRadius: 10,
+                      offset: Offset(0.5, 1),
+                    ),
+                  ],
+                ),
+                width: MediaQuery.of(context).size.width - 350,
+                height: MediaQuery.of(context).size.height - 220,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          top: 10, left: 7, right: 7, bottom: 10),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20, top: 30),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Icon(
-                              Icons.delete_forever,
-                              size: 25,
-                              color: Colors.white,
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 0, top: 30),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    child: buildCheckBox(),
+                                  ),
+                                  SizedBox(
+                                    width: 30,
+                                  ),
+                                  Container(
+                                    child: Text(
+                                      'Name',
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 200.0,
+                                  ),
+                                  Container(
+                                    child: Text(
+                                      'Email',
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 200.0,
+                                  ),
+                                  Container(
+                                    child: Text(
+                                      'Address',
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 200.0,
+                                  ),
+                                  Container(
+                                    child: Text(
+                                      'Phone Number',
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                            Text(
-                              '  Remove All',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
-                            )
+                            SizedBox(
+                              height: 20,
+                            ),
+                            CleanerDerails('name2', 'name2@gmail.com',
+                                'A street, Tokyo', '+953465367'),
+                            CleanerDerails('name1', 'name2@gmail.com',
+                                'A street, Tokyo', '+954567856'),
+                            CleanerDerails('name3', 'name2@gmail.com',
+                                'A street, Tokyo', '+954556345'),
+                            CleanerDerails('name1', 'name2@gmail.com',
+                                'A street, Tokyo', '+954534234'),
                           ],
                         ),
                       ),
                     ),
-                  ],
-                ),
-                //*******************
-                Padding(
-                  padding: const EdgeInsets.only(left: 25, top: 22),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.2), //color of shadow
-                          spreadRadius: 5,
-                          blurRadius: 10,
-                          offset: Offset(0.5, 1),
-                        ),
-                      ],
-                    ),
-                    width: MediaQuery.of(context).size.width - 350,
-                    height: MediaQuery.of(context).size.height - 220,
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              top: 10, left: 7, right: 7, bottom: 10),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 20, top: 30),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(left: 0, top: 30),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        child: buildCheckBox(),
-                                      ),
-                                      SizedBox(
-                                        width: 30,
-                                      ),
-                                      Container(
-                                        child: Text(
-                                          'Name',
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 200.0,
-                                      ),
-                                      Container(
-                                        child: Text(
-                                          'Email',
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 200.0,
-                                      ),
-                                      Container(
-                                        child: Text(
-                                          'Address',
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 200.0,
-                                      ),
-                                      Container(
-                                        child: Text(
-                                          'Phone Number',
-                                          style: TextStyle(
-                                              fontSize: 17,
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                CleanerDerails('name2', 'name2@gmail.com',
-                                    'A street, Tokyo', '+953465367'),
-                                CleanerDerails('name1', 'name2@gmail.com',
-                                    'A street, Tokyo', '+954567856'),
-                                CleanerDerails('name3', 'name2@gmail.com',
-                                    'A street, Tokyo', '+954556345'),
-                                CleanerDerails('name1', 'name2@gmail.com',
-                                    'A street, Tokyo', '+954534234'),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
                   ),
-                )
-                //****************
-              ],
+                ),
+              ),
             )
+            //****************
           ],
         ),
       ),

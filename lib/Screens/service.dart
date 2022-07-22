@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sprace/component/colors.dart';
 
-import '../component/header.dart';
+// import '../component/header.dart';
 import '../component/sidemenu.dart';
 
 class ServicePage extends StatefulWidget {
@@ -227,80 +227,43 @@ class _ServicePageState extends State<ServicePage> {
       );
     }
 
-    return Scaffold(
-      body: SafeArea(
+    return Container(
+      child: SafeArea(
         child: Container(
-          child: Row(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SideMenu(
-                value: 'services',
-              ),
-              Column(
+              // HeaderBar(
+                // value: 'Services',
+              // ),
+              Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  HeaderBar(
-                    value: 'Services',
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(left: 25, top: 30, right: 22),
-                        child: GestureDetector(
-                          onTap: () {},
-                          child: GestureDetector(
-                            onTap: openDialog,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: AppColor.mainColor,
-                              ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.add_circle,
-                                    size: 25,
-                                    color: Colors.white,
-                                  ),
-                                  Text(
-                                    '  Add Service',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 20),
-                                  )
-                                ],
-                              ),
-                              height: 50,
-                              width: 200,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(left: 0, top: 30, right: 22),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 25, top: 30, right: 22),
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: GestureDetector(
+                        onTap: openDialog,
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: Color(0xFFF94F4F),
+                            color: AppColor.mainColor,
                           ),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(
-                                Icons.delete_forever,
+                                Icons.add_circle,
                                 size: 25,
                                 color: Colors.white,
                               ),
                               Text(
-                                '  Remove All',
+                                '  Add Service',
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 20),
                               )
@@ -310,77 +273,105 @@ class _ServicePageState extends State<ServicePage> {
                           width: 200,
                         ),
                       ),
-                    ],
+                    ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 25, top: 22),
+                    padding:
+                        const EdgeInsets.only(left: 0, top: 30, right: 22),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color:
-                                Colors.grey.withOpacity(0.2), //color of shadow
-                            spreadRadius: 5,
-                            blurRadius: 10,
-                            offset: Offset(0.5, 1),
+                        borderRadius: BorderRadius.circular(20),
+                        color: Color(0xFFF94F4F),
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.delete_forever,
+                            size: 25,
+                            color: Colors.white,
                           ),
+                          Text(
+                            '  Remove All',
+                            style: TextStyle(
+                                color: Colors.white, fontSize: 20),
+                          )
                         ],
                       ),
-                      width: MediaQuery.of(context).size.width - 350,
-                      height: MediaQuery.of(context).size.height - 220,
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.vertical,
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                                top: 10, left: 20, right: 7, bottom: 10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
+                      height: 50,
+                      width: 200,
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 25, top: 22),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color:
+                            Colors.grey.withOpacity(0.2), //color of shadow
+                        spreadRadius: 5,
+                        blurRadius: 10,
+                        offset: Offset(0.5, 1),
+                      ),
+                    ],
+                  ),
+                  width: MediaQuery.of(context).size.width - 350,
+                  height: MediaQuery.of(context).size.height - 220,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            top: 10, left: 20, right: 7, bottom: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            // Container(
+                            //   child: GridView(
+                            //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 50, crossAxisSpacing: 100),
+                            //     scrollDirection: Axis.vertical,
+                            //     shrinkWrap: true,
+                            //     children: [
+                            //       Cleaner('Women', 'Washroom cleaning', 50000),
+                            //       Cleaner('Women', 'Washroom cleaning', 50000),
+                            //       Cleaner('Women', 'Washroom cleaning', 50000),
+                            //       Cleaner('Women', 'Washroom cleaning', 50000),
+                            //     ],
+                            //   ),
+                            // ),
+                            //***************************
+                            Row(
                               children: [
-                                // Container(
-                                //   child: GridView(
-                                //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 50, crossAxisSpacing: 100),
-                                //     scrollDirection: Axis.vertical,
-                                //     shrinkWrap: true,
-                                //     children: [
-                                //       Cleaner('Women', 'Washroom cleaning', 50000),
-                                //       Cleaner('Women', 'Washroom cleaning', 50000),
-                                //       Cleaner('Women', 'Washroom cleaning', 50000),
-                                //       Cleaner('Women', 'Washroom cleaning', 50000),
-                                //     ],
-                                //   ),
-                                // ),
-                                //***************************
-                                Row(
-                                  children: [
-                                    Cleaner(
-                                        'Women', 'Washroom cleaning', 50000),
-                                    Cleaner(
-                                        'Women', 'Washroom cleaning', 50000),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Cleaner(
-                                        'Women', 'Washroom cleaning', 50000),
-                                    Cleaner(
-                                        'Women', 'Washroom cleaning', 50000),
-                                  ],
-                                ),
-                                //  *****************************
+                                Cleaner(
+                                    'Women', 'Washroom cleaning', 50000),
+                                Cleaner(
+                                    'Women', 'Washroom cleaning', 50000),
                               ],
                             ),
-                          ),
+                            Row(
+                              children: [
+                                Cleaner(
+                                    'Women', 'Washroom cleaning', 50000),
+                                Cleaner(
+                                    'Women', 'Washroom cleaning', 50000),
+                              ],
+                            ),
+                            //  *****************************
+                          ],
                         ),
                       ),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                ),
+              )
             ],
           ),
         ),

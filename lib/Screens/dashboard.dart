@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sprace/component/colors.dart';
 
-import '../component/header.dart';
+// import '../component/header.dart';
 import '../component/sidemenu.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -14,32 +14,24 @@ class DashboardPage extends StatefulWidget {
 class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
+    return Container(
+      child: SafeArea(
         child: Container(
-          child: Row(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SideMenu(value: 'dashboard',),
-              Column(
+              // HeaderBar(value: 'Dashboard',),
+              Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  HeaderBar(value: 'Dashboard',),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Comp('Orders','assets/img_5.png',10),
-                      Comp('Services','assets/img_6.png',12),
-                      Comp('Cleaners','assets/img_7.png',24),
+                  Comp('Orders','assets/img_5.png',10),
+                  Comp('Services','assets/img_6.png',12),
+                  Comp('Cleaners','assets/img_7.png',24),
 
-                    ],
-                  ),
                 ],
               ),
-
             ],
           ),
         ),
