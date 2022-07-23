@@ -21,7 +21,7 @@ class _ServicePageState extends State<ServicePage> {
     Future<void> openDialog() async {
       return showDialog<void>(
         context: context,
-        barrierDismissible: false, // user must tap button!
+        barrierDismissible: true, // user must tap button!
         builder: (BuildContext context) {
           return AlertDialog(
             shape:
