@@ -3,8 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sprace/component/colors.dart';
 
-// import '../component/header.dart';
-import '../component/sidemenu.dart';
 
 class ServicePage extends StatefulWidget {
   const ServicePage({Key? key}) : super(key: key);
