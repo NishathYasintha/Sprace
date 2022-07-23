@@ -1,10 +1,5 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
-import '../component/colors.dart';
-// import '../component/header.dart';
-import '../component/sidemenu.dart';
 
 class InOrderPage extends StatefulWidget {
   const InOrderPage({Key? key}) : super(key: key);
@@ -17,6 +12,7 @@ class _InOrderPageState extends State<InOrderPage> {
   @override
   final items = ['Admin', 'User', 'Cleaners'];
   String? selectedItem = 'Admin';
+
 
   Widget build(BuildContext context) {
     return Container(
@@ -377,7 +373,7 @@ class _InOrderPageState extends State<InOrderPage> {
                   ),
                 ),
               ),
-            ), //****************
+            ),
           ],
         ),
       ),
