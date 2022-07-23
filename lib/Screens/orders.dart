@@ -117,53 +117,47 @@ class _OrdersPageState extends State<OrdersPage> {
                 ),
                 width: MediaQuery.of(context).size.width - 350,
                 height: MediaQuery.of(context).size.height - 170,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    child: Padding(
-                      padding: const EdgeInsets.only(top:10 ,left:7 , right:7 ,bottom:10 ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20,top: 30),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 30,top: 30),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    child: Text('Order',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
-                                  ),
-                                  SizedBox(width: 270.0,),
-                                  Container(
-                                    child: Text('Date',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
-
-                                  ),
-                                  SizedBox(width: 270.0,),
-                                  Container(
-                                    child: Text('Status',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
-
-                                  ),
-                                  SizedBox(width: 270.0,),
-                                  Container(
-                                    child: Text('Price'.toString(),style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
-                                  ),
-                                ],
+                child: Padding(
+                  padding: const EdgeInsets.only(top:10 ,left:7 , right:7 ,bottom:10 ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20,top: 30),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 30,top: 30),
+                          child: Row(
+                            children: [
+                              Container(
+                                child: Text('Order',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
                               ),
-                            ),
-                            SizedBox(height: 20,),
-                            OrderDerails('Order1','Aug 4,2021', 'completed', 3000,filterType: _filterBy),
-                            OrderDerails('Order2','Aug 4,2021', 'processing', 3000, filterType: _filterBy),
-                            OrderDerails('Order1','Aug 4,2021', 'completed', 3000, filterType: _filterBy),
-                            OrderDerails('Order3','Aug 4,2021', 'rejected', 3000, filterType: _filterBy),
+                              SizedBox(width: 270.0,),
+                              Container(
+                                child: Text('Date',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
 
+                              ),
+                              SizedBox(width: 270.0,),
+                              Container(
+                                child: Text('Status',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
 
-
-                          ],
+                              ),
+                              SizedBox(width: 270.0,),
+                              Container(
+                                child: Text('Price'.toString(),style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
+                        SizedBox(height: 20,),
+                        OrderDerails('Order1','Aug 4,2021', 'completed', 3000,filterType: _filterBy),
+                        OrderDerails('Order2','Aug 4,2021', 'processing', 3000, filterType: _filterBy),
+                        OrderDerails('Order1','Aug 4,2021', 'completed', 3000, filterType: _filterBy),
+                        OrderDerails('Order3','Aug 4,2021', 'rejected', 3000, filterType: _filterBy),
+
+
+
+                      ],
                     ),
                   ),
                 ),
@@ -270,45 +264,50 @@ OrderDerails (var _order, var _date, var _status, var _price,{int filterType = 0
 
 loadDetails(var _order, var _date, var _status, var _price, var _x, var _c){
   
-  return Container(
-    height: 50,
-      width: 1080,
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.black12)
-      ),
-      // color: Colors.red,
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 30),
-            child: Container(
+  return GestureDetector(
+    onTap: () {
+      print("dineth");
+    },
+    child: Container(
+      height: 50,
+        width: 1080,
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.black12)
+        ),
+        // color: Colors.red,
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 30),
+              child: Container(
+                width: 120,
+                    child: Text(_order,style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
+              ),
+            ),
+            SizedBox(width: _x-100,),
+            Container(
               width: 120,
-                  child: Text(_order,style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
+                  child: Text(_date,style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
+  
             ),
-          ),
-          SizedBox(width: _x-100,),
-          Container(
-            width: 120,
-                child: Text(_date,style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
-
-          ),
-          SizedBox(width: _x-90,),
-          Container(
-            width: 100,
-            height: 40,
-            decoration: BoxDecoration(
-              color: _c,
-              borderRadius: BorderRadius.circular(10)
+            SizedBox(width: _x-90,),
+            Container(
+              width: 100,
+              height: 40,
+              decoration: BoxDecoration(
+                color: _c,
+                borderRadius: BorderRadius.circular(10)
+              ),
+              child: Center(child: Text(_status,style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),)),
+  
             ),
-            child: Center(child: Text(_status,style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),)),
-
-          ),
-          SizedBox(width: _x-30,),
-          Container(
-            width: 100,
-                child: Text(_price.toString(),style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
-          ),
-        ],
+            SizedBox(width: _x-30,),
+            Container(
+              width: 100,
+                  child: Text(_price.toString(),style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
+            ),
+          ],
+        ),
       ),
-    );
+  );
 }
