@@ -7,6 +7,7 @@ import 'package:sprace/component/colors.dart';
 
 import '../Screens/cleaners.dart';
 import '../Screens/dashboard.dart';
+import '../Screens/inorder.dart';
 
 var _page='Dashboard';
 
@@ -24,12 +25,19 @@ class _SideMenuState extends State<SideMenu> {
   var _dashFont , _dashCov, _orderFont , _orderCov, _cleanerFont , _cleanerCov,
       _serviceFont , _serviceCov, _profileFont , _profileCov, _setFont , _setCov;
 
+  myFunction(){
+    derectToInOrder();
+  }
+
   LoadPage(){
     if(_page == 'Dashboard'){
          return DashboardPage();
     }
     else if(_page == 'Orders'){
          return OrdersPage();
+    }
+    else if(_page == 'InOrder'){
+         return InOrderPage();
     }
     else if(_page == 'Cleaners'){
       return CleanPage();
@@ -54,6 +62,12 @@ class _SideMenuState extends State<SideMenu> {
     else if(_npage == 'Orders'){
       setState(() {
         _page = 'Orders';
+      });
+
+    }
+    else if(_npage == 'InOrder'){
+      setState(() {
+        _page = 'InOrder';
       });
 
     }
@@ -93,7 +107,7 @@ class _SideMenuState extends State<SideMenu> {
       _setFont = AppColor.blackFont;
       _setCov = AppColor.whiteFont;
     }
-    else if(_col == 'Orders'){
+    else if(_col == 'Orders'|| _col == 'InOrder'){
       _dashFont = AppColor.blackFont;
       _dashCov = AppColor.whiteFont;
       _orderFont = AppColor.whiteFont;
@@ -442,4 +456,9 @@ Topic(var _topic){
   return Container(
       child:Text(_topic,style: TextStyle(color: AppColor.textDark, fontSize: 30),)
   );
+}
+
+derectToInOrder(){
+  _page="InOrder";
+  
 }
