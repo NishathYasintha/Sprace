@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sprace/component/colors.dart';
 
-// import '../component/header.dart';
-import '../component/sidemenu.dart';
-
 class DashboardPage extends StatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);
 

@@ -332,13 +332,30 @@ class _SideMenuState extends State<SideMenu> {
                     // color: Color(0xffE5E5E5),
                     child: Row(
                       children: [
-                        SizedBox(width: 40,),
-                        Expanded(
-                            child:
-                            Topic(_page)
-                        ),
-                        Expanded(
-                          child: Container(
+                        // Icon(Icons.notifications_none),
+                        SizedBox(width: 20,),
+                        PopupMenu(
+                          menuList: [
+                            PopupMenuItem(child: ListTile(
+                              title: Text('Sign Out'),
+                              onTap: (){
+                                
+                              },
+                            ))
+                          ],
+                          icon: Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage("assets/img_4.png"),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),),
+                        SizedBox(width: 20,),
+                        Container(
+                          child: SizedBox(
                             width: 100,
                             height: 50,
                             child: TextField(
@@ -411,6 +428,21 @@ class _SideMenuState extends State<SideMenu> {
     );
   }
 }
+
+class PopupMenu extends StatelessWidget {
+  final List<PopupMenuEntry> menuList;
+  final Widget? icon;
+  const PopupMenu({Key? key, required this.menuList, this.icon}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return PopupMenuButton(
+        itemBuilder: ((context)=>menuList),
+      icon: icon,
+    );
+  }
+}
+
 
 
 Topic(var _topic){
