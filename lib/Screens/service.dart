@@ -329,42 +329,30 @@ class _ServicePageState extends State<ServicePage> {
                       scrollDirection: Axis.vertical,
                       child: Padding(
                         padding: const EdgeInsets.only(
-                            top: 10, left: 20, right: 7, bottom: 10),
+                            top: 10, left: 10, right: 7, bottom: 10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            // Container(
-                            //   child: GridView(
-                            //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 50, crossAxisSpacing: 100),
-                            //     scrollDirection: Axis.vertical,
-                            //     shrinkWrap: true,
-                            //     children: [
-                            //       Cleaner('Women', 'Washroom cleaning', 50000),
-                            //       Cleaner('Women', 'Washroom cleaning', 50000),
-                            //       Cleaner('Women', 'Washroom cleaning', 50000),
-                            //       Cleaner('Women', 'Washroom cleaning', 50000),
-                            //     ],
-                            //   ),
-                            // ),
-                            //***************************
-                            Row(
-                              children: [
-                                Cleaner(
-                                    'Women', 'Washroom cleaning', 50000),
-                                Cleaner(
-                                    'Women', 'Washroom cleaning', 50000),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Cleaner(
-                                    'Women', 'Washroom cleaning', 50000),
-                                Cleaner(
-                                    'Women', 'Washroom cleaning', 50000),
-                              ],
-                            ),
-                            //  *****************************
+                           Container(
+                             width: 1150,
+                             height: MediaQuery.of(context).size.height - 240,
+                             child: GridView.count(
+                                    crossAxisCount: 3, childAspectRatio: 17/10,
+                                scrollDirection: Axis.vertical,
+                                shrinkWrap: true,
+                               children: [
+                                 Cleaner('Women','Washroom Cleaning', 5000),
+                                 Cleaner('Women','Washroom Cleaning', 5000),
+                                 Cleaner('Women','Washroom Cleaning', 5000),
+                                 Cleaner('Women','Washroom Cleaning', 5000),
+                                 Cleaner('Women','Washroom Cleaning', 5000),
+                                 Cleaner('Women','Washroom Cleaning', 5000),
+                                 Cleaner('Women','Washroom Cleaning', 5000),
+                                 Cleaner('Women','Washroom Cleaning', 5000),
+                               ],
+                             ),
+                           )
                           ],
                         ),
                       ),
@@ -382,10 +370,10 @@ class _ServicePageState extends State<ServicePage> {
 
 Cleaner(var _gender, var _type, var _price) {
   return Padding(
-    padding: const EdgeInsets.only(left: 80.0, top: 30),
+    padding: const EdgeInsets.only(left: 30.0, top: 20,right: 20),
     child: Container(
-      width: 440,
-      height: 240,
+      width: 340,
+      height: 200,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -408,16 +396,16 @@ Cleaner(var _gender, var _type, var _price) {
               Container(
                 decoration: BoxDecoration(
                     color: Colors.black26,
-                    borderRadius: BorderRadius.circular(60)),
-                height: 190,
-                width: 165,
+                    borderRadius: BorderRadius.circular(40)),
+                height: 140,
+                width: 115,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      height: 170,
-                      width: 145,
+                      height: 120,
+                      width: 95,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage("assets/img_2.png"),
@@ -439,40 +427,40 @@ Cleaner(var _gender, var _type, var _price) {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Container(
                   child: Text(
                     _gender,
-                    style: TextStyle(fontSize: 23, color: Color(0xFF000000)),
+                    style: TextStyle(fontSize: 20, color: Color(0xFF000000)),
                   ),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 4,
                 ),
                 Container(
                     child: Text(
                   'Cleaner',
-                  style: TextStyle(fontSize: 40, color: Color(0xFF000000)),
+                  style: TextStyle(fontSize: 35, color: Color(0xFF000000)),
                 )),
                 SizedBox(
-                  height: 5,
+                  height: 4,
                 ),
                 Container(
                   child: Text(
                     _type,
-                    style: TextStyle(fontSize: 15, color: Color(0xFF000000)),
+                    style: TextStyle(fontSize: 12, color: Color(0xFF000000)),
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 8,
                 ),
                 Container(
                   child: Text(
                     'Rs\.' + _price.toString(),
                     style: TextStyle(
                         fontWeight: FontWeight.w700,
-                        fontSize: 35,
+                        fontSize: 27,
                         color: Colors.red),
                   ),
                 ),
