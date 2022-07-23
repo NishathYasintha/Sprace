@@ -363,7 +363,12 @@ class _SideMenuState extends State<SideMenu> {
                         SizedBox(
                           width: 40,
                         ),
-                        Container(child: Topic(_page)),
+                        Expanded(
+                            child: Container(
+                              width: 200,
+                                child: Topic(_page)
+                            )
+                        ),
                         Expanded(
                           child: Container(
                             width: 100,
