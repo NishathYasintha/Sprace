@@ -170,237 +170,243 @@ class _SideMenuState extends State<SideMenu> {
   Widget build(BuildContext context) {
     AddColors(_page);
     return Scaffold(
-      body: Row(
-        children: [
-          Drawer(
-            child: Container(
-              color: Colors.white,
-              child: ListView(
-                padding: EdgeInsets.zero,
-                children: <Widget>[
-                  DrawerHeader(
-                    child: Text(
-                      'Side menu',
-                      style: TextStyle(color: Colors.white, fontSize: 25),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            Drawer(
+              child: Container(
+                color: Colors.white,
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  children: <Widget>[
+                    DrawerHeader(
+                      child: Text(
+                        'Side menu',
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
+                      decoration: BoxDecoration(
+                          // color: Colors.green,
+                          image: DecorationImage(
+                              // fit: BoxFit.fill,
+                              image: AssetImage('assets/img_1.png'))),
                     ),
-                    decoration: BoxDecoration(
-                        // color: Colors.green,
-                        image: DecorationImage(
-                            // fit: BoxFit.fill,
-                            image: AssetImage('assets/img_1.png'))),
-                  ),
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40,right: 40, top: 10),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: _dashCov,
-                              borderRadius: BorderRadius.circular(20)
-                          ),
-                          width: 200,
-                          height: 80,
-                          child: ListTile(
-                            // hoverColor: Colors.orange,
-                            leading: Icon(Icons.home_filled,color: _dashFont,),
-                            title: Text('Dashboard',
-                                style: TextStyle(fontSize: 18, color: _dashFont)),
-                            onTap: (){
-                              EditPage('Dashboard');
-                            },
-                            contentPadding: EdgeInsets.only(left: 30, top:18,bottom: 20),
-                            style: ListTileStyle.drawer,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40,right: 40, top: 10),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: _orderCov,
-                              borderRadius: BorderRadius.circular(20)
-                          ),
-                          width: 200,
-                          height: 80,
-                          child: ListTile(
-                            // hoverColor: Colors.orange,
-                            leading: Icon(Icons.list_alt_rounded,color: _orderFont,),
-                            title: Text('Orders',
-                                style: TextStyle(fontSize: 18, color: _orderFont)),
-                            onTap: (){
-                                  EditPage('Orders');
-                            },
-                            contentPadding: EdgeInsets.only(left: 30, top:18,bottom: 20),
-                            style: ListTileStyle.drawer,
-
-                            tileColor: Colors.red,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40,right: 40, top: 10),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: _cleanerCov,
-                              borderRadius: BorderRadius.circular(20)
-                          ),
-                          width: 200,
-                          height: 80,
-                          child: ListTile(
-                            // hoverColor: Colors.orange,
-                            leading: Icon(Icons.people ,color: _cleanerFont,),
-                            title: Text('Cleaners',
-                                style: TextStyle(fontSize: 18, color: _cleanerFont)),
-                            onTap: (){
-                              EditPage('Cleaners');
-                            },
-                            contentPadding: EdgeInsets.only(left: 30, top:18,bottom: 20),
-                            style: ListTileStyle.drawer,
-
-                            tileColor: Colors.red,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40,right: 40, top: 10),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: _serviceCov,
-                              borderRadius: BorderRadius.circular(20)
-                          ),
-                          width: 200,
-                          height: 80,
-                          child: ListTile(
-                            // hoverColor: Colors.orange,
-                            leading: Icon(Icons.cleaning_services,color: _serviceFont,),
-                            title: Text('Services',
-                                style: TextStyle(fontSize: 18, color: _serviceFont)),
-                            onTap: (){
-                              EditPage('Services');
-                            },
-                            contentPadding: EdgeInsets.only(left: 30, top:18,bottom: 20),
-                            style: ListTileStyle.drawer,
-
-                            tileColor: Colors.red,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40,right: 40, top: 10),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: _profileCov,
-                              borderRadius: BorderRadius.circular(20)
-                          ),
-                          width: 200,
-                          height: 80,
-                          child: ListTile(
-                            // hoverColor: Colors.orange,
-                            leading: Icon(Icons.account_circle_rounded,color: _profileFont,),
-                            title: Text('Profile',
-                                style: TextStyle(fontSize: 18, color: _profileFont)),
-                            onTap: (){EditPage('Profile');
-                            },
-                            contentPadding: EdgeInsets.only(left: 30, top:18,bottom: 20),
-                            style: ListTileStyle.drawer,
-
-                            tileColor: Colors.red,
-                          ),
-                        ),
-                      ),
-
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-
-          //Header
-
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Container(
-                height: 90,
-                width: MediaQuery.of(context).size.width - 350,
-                // color: Color(0xffE5E5E5),
-                child: Row(
-                  children: [
-                    SizedBox(width: 40,),
-                    Expanded(
-                        child:
-                        Topic(_page)
-                    ),
-                    Expanded(
-                      child: Container(
-                        width: 100,
-                        height: 50,
-                        child: TextField(
-                          decoration: new InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
-                            border: new OutlineInputBorder(
-                              borderSide: new BorderSide(
-                                  color: Colors.teal,
-                                  width: 0.0
-                              ),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            prefixIcon: Icon(Icons.search),
-                            hintText: 'Search Anything',
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 120,),
-                    Row(
+                    Column(
                       children: [
-                        // Icon(Icons.notifications_none),
-                        SizedBox(width: 20,),
-                        Container(
-                          height: 30,
-                          width: 30,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage("assets/img_4.png"),
-                              fit: BoxFit.cover,
+                        Padding(
+                          padding: const EdgeInsets.only(left: 40,right: 40, top: 10),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: _dashCov,
+                                borderRadius: BorderRadius.circular(20)
+                            ),
+                            width: 200,
+                            height: 80,
+                            child: ListTile(
+                              // hoverColor: Colors.orange,
+                              leading: Icon(Icons.home_filled,color: _dashFont,),
+                              title: Text('Dashboard',
+                                  style: TextStyle(fontSize: 18, color: _dashFont)),
+                              onTap: (){
+                                EditPage('Dashboard');
+                              },
+                              contentPadding: EdgeInsets.only(left: 30, top:18,bottom: 20),
+                              style: ListTileStyle.drawer,
                             ),
                           ),
                         ),
-                        SizedBox(width: 20,),
-                        Container(
-                          child: SizedBox(
-                            width: 100,
-                            height: 50,
-                            child: DropdownButtonHideUnderline(
-                              child: DropdownButton<String>(
-                                underline: null,
-                                value: selectedItem,
-                                items: items
-                                    .map((item)=> DropdownMenuItem<String>(
-                                    value: item,
-                                    child: Text(item)
-                                )
-                                ).toList(),
-                                onChanged: (item) =>setState(() {
-                                  selectedItem=item;
-                                }),
-                              ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 40,right: 40, top: 10),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: _orderCov,
+                                borderRadius: BorderRadius.circular(20)
+                            ),
+                            width: 200,
+                            height: 80,
+                            child: ListTile(
+                              // hoverColor: Colors.orange,
+                              leading: Icon(Icons.list_alt_rounded,color: _orderFont,),
+                              title: Text('Orders',
+                                  style: TextStyle(fontSize: 18, color: _orderFont)),
+                              onTap: (){
+                                    EditPage('Orders');
+                              },
+                              contentPadding: EdgeInsets.only(left: 30, top:18,bottom: 20),
+                              style: ListTileStyle.drawer,
+      
+                              tileColor: Colors.red,
                             ),
                           ),
                         ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 40,right: 40, top: 10),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: _cleanerCov,
+                                borderRadius: BorderRadius.circular(20)
+                            ),
+                            width: 200,
+                            height: 80,
+                            child: ListTile(
+                              // hoverColor: Colors.orange,
+                              leading: Icon(Icons.people ,color: _cleanerFont,),
+                              title: Text('Cleaners',
+                                  style: TextStyle(fontSize: 18, color: _cleanerFont)),
+                              onTap: (){
+                                EditPage('Cleaners');
+                              },
+                              contentPadding: EdgeInsets.only(left: 30, top:18,bottom: 20),
+                              style: ListTileStyle.drawer,
+      
+                              tileColor: Colors.red,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 40,right: 40, top: 10),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: _serviceCov,
+                                borderRadius: BorderRadius.circular(20)
+                            ),
+                            width: 200,
+                            height: 80,
+                            child: ListTile(
+                              // hoverColor: Colors.orange,
+                              leading: Icon(Icons.cleaning_services,color: _serviceFont,),
+                              title: Text('Services',
+                                  style: TextStyle(fontSize: 18, color: _serviceFont)),
+                              onTap: (){
+                                EditPage('Services');
+                              },
+                              contentPadding: EdgeInsets.only(left: 30, top:18,bottom: 20),
+                              style: ListTileStyle.drawer,
+      
+                              tileColor: Colors.red,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 40,right: 40, top: 10),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: _profileCov,
+                                borderRadius: BorderRadius.circular(20)
+                            ),
+                            width: 200,
+                            height: 80,
+                            child: ListTile(
+                              // hoverColor: Colors.orange,
+                              leading: Icon(Icons.account_circle_rounded,color: _profileFont,),
+                              title: Text('Profile',
+                                  style: TextStyle(fontSize: 18, color: _profileFont)),
+                              onTap: (){EditPage('Profile');
+                              },
+                              contentPadding: EdgeInsets.only(left: 30, top:18,bottom: 20),
+                              style: ListTileStyle.drawer,
+      
+                              tileColor: Colors.red,
+                            ),
+                          ),
+                        ),
+      
                       ],
                     ),
                   ],
                 ),
               ),
-              LoadPage()
-            ],
-
-          )
-        ],
+            ),
+      
+            //Header
+      
+            SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 90,
+                    width: MediaQuery.of(context).size.width - 350,
+                    // color: Color(0xffE5E5E5),
+                    child: Row(
+                      children: [
+                        SizedBox(width: 40,),
+                        Expanded(
+                            child:
+                            Topic(_page)
+                        ),
+                        Expanded(
+                          child: Container(
+                            width: 100,
+                            height: 50,
+                            child: TextField(
+                              decoration: new InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white,
+                                border: new OutlineInputBorder(
+                                  borderSide: new BorderSide(
+                                      color: Colors.teal,
+                                      width: 0.0
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                prefixIcon: Icon(Icons.search),
+                                hintText: 'Search Anything',
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 120,),
+                        Row(
+                          children: [
+                            // Icon(Icons.notifications_none),
+                            SizedBox(width: 20,),
+                            Container(
+                              height: 30,
+                              width: 30,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage("assets/img_4.png"),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 20,),
+                            Container(
+                              child: SizedBox(
+                                width: 100,
+                                height: 50,
+                                child: DropdownButtonHideUnderline(
+                                  child: DropdownButton<String>(
+                                    underline: null,
+                                    value: selectedItem,
+                                    items: items
+                                        .map((item)=> DropdownMenuItem<String>(
+                                        value: item,
+                                        child: Text(item)
+                                    )
+                                    ).toList(),
+                                    onChanged: (item) =>setState(() {
+                                      selectedItem=item;
+                                    }),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  LoadPage()
+                ],
+                  
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
