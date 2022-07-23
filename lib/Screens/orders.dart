@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sprace/component/colors.dart';
+import 'package:sprace/component/sidemenu.dart';
 
 
 class OrdersPage extends StatefulWidget {
@@ -193,47 +194,12 @@ OrderDerails (var _order, var _date, var _status, var _price,{int filterType = 0
   }
 
   if(filterType == 0){
-    return Container(
-    height: 50,
-      width: 1080,
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.black12)
-      ),
-      // color: Colors.red,
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 30),
-            child: Container(
-              width: 120,
-                  child: Text(_order,style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
-            ),
-          ),
-          SizedBox(width: _x-100,),
-          Container(
-            width: 120,
-                child: Text(_date,style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
-
-          ),
-          SizedBox(width: _x-90,),
-          Container(
-            width: 100,
-            height: 40,
-            decoration: BoxDecoration(
-              color: _c,
-              borderRadius: BorderRadius.circular(10)
-            ),
-            child: Center(child: Text(_status,style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),)),
-
-          ),
-          SizedBox(width: _x-30,),
-          Container(
-            width: 100,
-                child: Text(_price.toString(),style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
-          ),
-        ],
-      ),
-    );
+    return GestureDetector(
+      onTap: () {
+        print("dineth");
+      },
+      child: Container(child:loadDetails(_order, _date, _status, _price, _x, _c),));
+    
   }
   else if(filterType == 1){
     if(_status=='processing'){
@@ -273,6 +239,7 @@ loadDetails(var _order, var _date, var _status, var _price, var _x, var _c){
   return GestureDetector(
     onTap: () {
       print("dineth");
+      derectToInOrder();
     },
     child: Container(
       height: 50,
