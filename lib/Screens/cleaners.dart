@@ -1,3 +1,4 @@
+import 'dart:html';
 import 'dart:js';
 
 import 'package:flutter/material.dart';
@@ -14,23 +15,132 @@ class CleanPage extends StatefulWidget {
 }
 
 class _CleanPageState extends State<CleanPage> {
+  bool? isChecked = false;
   @override
   Widget build(BuildContext context) {
+    makeCheckBox(isChecked) {
+      
+      Color getColor(Set<MaterialState> states) {
+        const Set<MaterialState> interactiveStates = <MaterialState>{
+          MaterialState.pressed,
+          MaterialState.hovered,
+          MaterialState.focused,
+        };
+        if (states.any(interactiveStates.contains)) {
+          return Colors.green;
+        }
+        return Colors.green;
+      }
+
+      return Checkbox(
+        checkColor: Colors.white,
+        fillColor: MaterialStateProperty.resolveWith(getColor),
+        value: isChecked,
+        onChanged: (bool? value) {
+          // setState(() {
+          //   isChecked = value!;
+          // });
+        },
+      );
+    }
+
+    CleanerDerails(bool id, var _name, var _email, var _address, var _phone) {
+      double _x = 270.0;
+      bool clicked = true;
+
+      return Container(
+        height: 50,
+        width: 1080,
+
+        // color: Colors.red,
+        child: Row(
+          children: [
+            Container(
+              child: makeCheckBox(id),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 30),
+              child: Container(
+                width: 120,
+                child: Text(
+                  _name,
+                  style: TextStyle(fontSize: 17),
+                ),
+              ),
+            ),
+            SizedBox(
+              width: _x - 150,
+            ),
+            Container(
+              width: 180,
+              child: Text(
+                _email,
+                style: TextStyle(fontSize: 17),
+              ),
+            ),
+            SizedBox(
+              width: _x - 210,
+            ),
+
+            Container(
+              width: 120,
+              child: Text(
+                _address,
+                style: TextStyle(fontSize: 17),
+              ),
+            ),
+            SizedBox(
+              width: _x - 120,
+            ),
+            Container(
+              width: 100,
+              child: Text(
+                _phone,
+                style: TextStyle(fontSize: 17),
+              ),
+            ),
+            SizedBox(
+              width: _x - 200,
+            ),
+            //can change this as gesture detector
+            Container(
+              child: Row(children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: Container(
+                    child: Icon(Icons.edit),
+                  ),
+                ),
+                Container(
+                  child: Icon(
+                    Icons.delete_forever,
+                    color: Colors.red,
+                  ),
+                ),
+              ]),
+            ),
+          ],
+        ),
+      );
+    }
+
     Future<void> openDialog() async {
       return showDialog<void>(
         context: context,
         barrierDismissible: true, // user must tap button!
         builder: (BuildContext context) {
           return AlertDialog(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-            content:  Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(40)
-              ),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            content: Container(
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(40)),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(top: 10, bottom: 10),
                       child: Container(
@@ -47,7 +157,9 @@ class _CleanPageState extends State<CleanPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text("Name"),
-                            SizedBox(height: 8,),
+                            SizedBox(
+                              height: 8,
+                            ),
                             Container(
                               height: 35,
                               child: TextField(
@@ -61,13 +173,18 @@ class _CleanPageState extends State<CleanPage> {
                                   hintStyle: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w400,
-                                      color: Color(0xFF4B506D).withOpacity(0.4)),
+                                      color:
+                                          Color(0xFF4B506D).withOpacity(0.4)),
                                 ),
                               ),
                             ),
-                            SizedBox(height: 12,),
+                            SizedBox(
+                              height: 12,
+                            ),
                             Text("Email"),
-                            SizedBox(height: 8,),
+                            SizedBox(
+                              height: 8,
+                            ),
                             Container(
                               height: 35,
                               child: TextField(
@@ -81,13 +198,18 @@ class _CleanPageState extends State<CleanPage> {
                                   hintStyle: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w400,
-                                      color: Color(0xFF4B506D).withOpacity(0.4)),
+                                      color:
+                                          Color(0xFF4B506D).withOpacity(0.4)),
                                 ),
                               ),
                             ),
-                            SizedBox(height: 12,),
+                            SizedBox(
+                              height: 12,
+                            ),
                             Text("Address"),
-                            SizedBox(height: 8,),
+                            SizedBox(
+                              height: 8,
+                            ),
                             Container(
                               height: 35,
                               child: TextField(
@@ -101,13 +223,18 @@ class _CleanPageState extends State<CleanPage> {
                                   hintStyle: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w400,
-                                      color: Color(0xFF4B506D).withOpacity(0.4)),
+                                      color:
+                                          Color(0xFF4B506D).withOpacity(0.4)),
                                 ),
                               ),
                             ),
-                            SizedBox(height: 12,),
+                            SizedBox(
+                              height: 12,
+                            ),
                             Text("Phone Number"),
-                            SizedBox(height: 8,),
+                            SizedBox(
+                              height: 8,
+                            ),
                             Container(
                               height: 35,
                               child: TextField(
@@ -121,14 +248,19 @@ class _CleanPageState extends State<CleanPage> {
                                   hintStyle: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w400,
-                                      color: Color(0xFF4B506D).withOpacity(0.4)),
+                                      color:
+                                          Color(0xFF4B506D).withOpacity(0.4)),
                                 ),
                               ),
                             ),
-                            SizedBox(height: 10,),
+                            SizedBox(
+                              height: 10,
+                            ),
                             Row(
                               children: [
-                                SizedBox(width: 63,),
+                                SizedBox(
+                                  width: 63,
+                                ),
                                 Container(
                                   width: 100,
                                   height: 30,
@@ -167,8 +299,7 @@ class _CleanPageState extends State<CleanPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding:
-                      const EdgeInsets.only(left: 25, top: 30, right: 22),
+                  padding: const EdgeInsets.only(left: 25, top: 30, right: 22),
                   child: GestureDetector(
                     onTap: openDialog,
                     child: Container(
@@ -188,8 +319,7 @@ class _CleanPageState extends State<CleanPage> {
                           ),
                           Text(
                             '  Add Cleaner',
-                            style: TextStyle(
-                                color: Colors.white, fontSize: 20),
+                            style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           //test
                         ],
@@ -200,8 +330,7 @@ class _CleanPageState extends State<CleanPage> {
                   ),
                 ),
                 Padding(
-                  padding:
-                      const EdgeInsets.only(left: 0, top: 30, right: 22),
+                  padding: const EdgeInsets.only(left: 0, top: 30, right: 22),
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
@@ -220,8 +349,7 @@ class _CleanPageState extends State<CleanPage> {
                         ),
                         Text(
                           '  Remove All',
-                          style:
-                              TextStyle(color: Colors.white, fontSize: 20),
+                          style: TextStyle(color: Colors.white, fontSize: 20),
                         )
                       ],
                     ),
@@ -261,12 +389,11 @@ class _CleanPageState extends State<CleanPage> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 0, top: 30),
+                              padding: const EdgeInsets.only(left: 0, top: 30),
                               child: Row(
                                 children: [
                                   Container(
-                                    child: buildCheckBox(),
+                                    child: makeCheckBox(false),
                                   ),
                                   SizedBox(
                                     width: 30,
@@ -318,13 +445,13 @@ class _CleanPageState extends State<CleanPage> {
                             SizedBox(
                               height: 20,
                             ),
-                            CleanerDerails('name2', 'name2@gmail.com',
+                            CleanerDerails(false, 'name2', 'name2@gmail.com',
                                 'A street, Tokyo', '+953465367'),
-                            CleanerDerails('name1', 'name2@gmail.com',
+                            CleanerDerails(true, 'name1', 'name2@gmail.com',
                                 'A street, Tokyo', '+954567856'),
-                            CleanerDerails('name3', 'name2@gmail.com',
+                            CleanerDerails(false,'name3', 'name2@gmail.com',
                                 'A street, Tokyo', '+954556345'),
-                            CleanerDerails('name1', 'name2@gmail.com',
+                            CleanerDerails(false,'name1', 'name2@gmail.com',
                                 'A street, Tokyo', '+954534234'),
                           ],
                         ),
@@ -342,86 +469,5 @@ class _CleanPageState extends State<CleanPage> {
   }
 }
 
-//this function call in for each function
 
-CleanerDerails(var _name, var _email, var _address, var _phone) {
-  double _x = 270.0;
 
-  return Container(
-    height: 50,
-    width: 1080,
-
-    // color: Colors.red,
-    child: Row(
-      children: [
-        Container(
-          child: buildCheckBox(),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 30),
-          child: Container(
-            width: 120,
-            child: Text(
-              _name,
-              style: TextStyle(fontSize: 17),
-            ),
-          ),
-        ),
-        SizedBox(
-          width: _x - 150,
-        ),
-        Container(
-          width: 180,
-          child: Text(
-            _email,
-            style: TextStyle(fontSize: 17),
-          ),
-        ),
-        SizedBox(
-          width: _x - 210,
-        ),
-
-        Container(
-          width: 120,
-          child: Text(
-            _address,
-            style: TextStyle(fontSize: 17),
-          ),
-        ),
-        SizedBox(
-          width: _x - 120,
-        ),
-        Container(
-          width: 100,
-          child: Text(
-            _phone,
-            style: TextStyle(fontSize: 17),
-          ),
-        ),
-        SizedBox(
-          width: _x - 200,
-        ),
-        //can change this as gesture detector
-        Container(
-          child: Row(children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: Container(
-                child: Icon(Icons.edit),
-              ),
-            ),
-            Container(
-              child: Icon(
-                Icons.delete_forever,
-                color: Colors.red,
-              ),
-            ),
-          ]),
-        ),
-      ],
-    ),
-  );
-}
-
-Widget buildCheckBox() => Checkbox(value: false, onChanged: onChanged);
-void onChanged(bool? value) {}
