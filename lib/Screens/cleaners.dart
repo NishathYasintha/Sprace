@@ -16,10 +16,41 @@ class CleanPage extends StatefulWidget {
 
 class _CleanPageState extends State<CleanPage> {
   bool? isChecked = false;
+  bool? check = false;
+
+  final topic = cleanerClass(
+      name: "Name",
+      email: "Email",
+      address: "Address",
+      phoneNumber: "Phone Number");
+  final cleanerList = [
+    cleanerClass(
+        name: "name1",
+        email: "name1@gmail.com",
+        address: "A street, Tokyo",
+        phoneNumber: "0776756456"),
+    cleanerClass(
+        name: "name2",
+        email: "name2@gmail.com",
+        address: "A street, Tokyo",
+        phoneNumber: "0776756456"),
+    cleanerClass(
+        name: "name3",
+        email: "name3@gmail.com",
+        address: "A street, Tokyo",
+        phoneNumber: "0776756456"),
+    cleanerClass(
+        name: "name4",
+        email: "name4@gmail.com",
+        address: "A street, Tokyo",
+        phoneNumber: "0776756456"),
+  ];
+
+  get onChanged => null;
+
   @override
   Widget build(BuildContext context) {
-    makeCheckBox(isChecked) {
-      
+    makeMainCheckBox() {
       Color getColor(Set<MaterialState> states) {
         const Set<MaterialState> interactiveStates = <MaterialState>{
           MaterialState.pressed,
@@ -27,9 +58,9 @@ class _CleanPageState extends State<CleanPage> {
           MaterialState.focused,
         };
         if (states.any(interactiveStates.contains)) {
-          return Colors.green;
+          return AppColor.mainColor;
         }
-        return Colors.green;
+        return AppColor.mainColor;
       }
 
       return Checkbox(
@@ -37,14 +68,39 @@ class _CleanPageState extends State<CleanPage> {
         fillColor: MaterialStateProperty.resolveWith(getColor),
         value: isChecked,
         onChanged: (bool? value) {
-          // setState(() {
-          //   isChecked = value!;
-          // });
+          setState(() {
+            isChecked = value!;
+          });
         },
       );
     }
 
-    CleanerDerails(bool id, var _name, var _email, var _address, var _phone) {
+    makeCheckBox() {
+      Color getColor(Set<MaterialState> states) {
+        const Set<MaterialState> interactiveStates = <MaterialState>{
+          MaterialState.pressed,
+          MaterialState.hovered,
+          MaterialState.focused,
+        };
+        if (states.any(interactiveStates.contains)) {
+          return AppColor.mainColor;
+        }
+        return AppColor.mainColor;
+      }
+
+      return Checkbox(
+        checkColor: Colors.white,
+        fillColor: MaterialStateProperty.resolveWith(getColor),
+        value: check,
+        onChanged: (bool? value) {
+          setState(() {
+            check = value!;
+          });
+        },
+      );
+    }
+
+    CleanerDerails(var _name, var _email, var _address, var _phone) {
       double _x = 270.0;
       bool clicked = true;
 
@@ -56,7 +112,7 @@ class _CleanPageState extends State<CleanPage> {
         child: Row(
           children: [
             Container(
-              child: makeCheckBox(id),
+              child: makeCheckBox(),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 30),
@@ -124,6 +180,7 @@ class _CleanPageState extends State<CleanPage> {
       );
     }
 
+    //pop up message
     Future<void> openDialog() async {
       return showDialog<void>(
         context: context,
@@ -298,6 +355,7 @@ class _CleanPageState extends State<CleanPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                //buttons
                 Padding(
                   padding: const EdgeInsets.only(left: 25, top: 30, right: 22),
                   child: GestureDetector(
@@ -388,71 +446,164 @@ class _CleanPageState extends State<CleanPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 0, top: 30),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    child: makeCheckBox(false),
-                                  ),
-                                  SizedBox(
-                                    width: 30,
-                                  ),
-                                  Container(
-                                    child: Text(
-                                      'Name',
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.w700),
+                            Container(
+                                width: 1000,
+                                height: 300,
+                                child: ListView(
+                                  children: [
+                                    ListTile(
+                                      leading: Checkbox(
+                                        hoverColor:Colors.green.shade100,
+                                        focusColor: AppColor.mainColor,
+                                        activeColor: AppColor.mainColor,
+                                        value: topic.checkValue,
+                                        onChanged: (value) {
+                                          final newVal = !topic.checkValue;
+                                          setState(() {
+                                            topic.checkValue =
+                                                newVal;
+                                            cleanerList.forEach((element) {
+                                              element.checkValue = newVal;
+                                            });
+                                          });
+                                        },
+                                      ),
+                                      title: Container(
+                                        child: Row(
+                                          children: [
+                                            Container(
+                                              child: Text(
+                                                'Name',
+                                                style: TextStyle(
+                                                    fontSize: 17,
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 200.0,
+                                            ),
+                                            Container(
+                                              child: Text(
+                                                'Email',
+                                                style: TextStyle(
+                                                    fontSize: 17,
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 200.0,
+                                            ),
+                                            Container(
+                                              child: Text(
+                                                'Address',
+                                                style: TextStyle(
+                                                    fontSize: 17,
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 200.0,
+                                            ),
+                                            Container(
+                                              child: Text(
+                                                'Phone Number',
+                                                style: TextStyle(
+                                                    fontSize: 17,
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    width: 200.0,
-                                  ),
-                                  Container(
-                                    child: Text(
-                                      'Email',
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.w700),
+                                    Divider(),
+                                    ...cleanerList.map((item) => 
+                                    
+                                    ListTile(
+                                      leading: Checkbox(
+                                        hoverColor: Colors.green.shade100,
+                                        focusColor: AppColor.mainColor,
+                                        activeColor: AppColor.mainColor,
+                                        value: item.checkValue,
+                                        onChanged: (value) {
+                                          setState(() {
+                                            item.checkValue =
+                                                !item.checkValue;
+                                          });
+                                        },
+                                      ),
+                                      title: Container(
+                                        child: Row(
+                                          children: [
+                                            Container(
+                                              child: Text(
+                                                item.name,
+                                                style: TextStyle(
+                                                    fontSize: 17,
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 160.0,
+                                            ),
+                                            Container(
+                                              child: Text(
+                                                item.email,
+                                                style: TextStyle(
+                                                    fontSize: 17,
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 120.0,
+                                            ),
+                                            Container(
+                                              child: Text(
+                                                item.address,
+                                                style: TextStyle(
+                                                    fontSize: 17,
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 160.0,
+                                            ),
+                                            Container(
+                                              child: Text(
+                                                item.phoneNumber,
+                                                style: TextStyle(
+                                                    fontSize: 17,
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    width: 200.0,
-                                  ),
-                                  Container(
-                                    child: Text(
-                                      'Address',
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.w700),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 200.0,
-                                  ),
-                                  Container(
-                                    child: Text(
-                                      'Phone Number',
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.w700),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            CleanerDerails(false, 'name2', 'name2@gmail.com',
-                                'A street, Tokyo', '+953465367'),
-                            CleanerDerails(true, 'name1', 'name2@gmail.com',
-                                'A street, Tokyo', '+954567856'),
-                            CleanerDerails(false,'name3', 'name2@gmail.com',
-                                'A street, Tokyo', '+954556345'),
-                            CleanerDerails(false,'name1', 'name2@gmail.com',
-                                'A street, Tokyo', '+954534234'),
+
+                                    ).toList()
+                                  ],
+                                ))
+
+                            // // SizedBox(
+                            //   height: 20,
+                            // ),
+                            // CleanerDerails('name2', 'name2@gmail.com',
+                            //     'A street, Tokyo', '+953465367'),
+                            // CleanerDerails('name1', 'name2@gmail.com',
+                            //     'A street, Tokyo', '+954567856'),
+                            // CleanerDerails('name3', 'name2@gmail.com',
+                            //     'A street, Tokyo', '+954556345'),
+                            // CleanerDerails('name1', 'name2@gmail.com',
+                            //     'A street, Tokyo', '+954534234'),
                           ],
                         ),
                       ),
@@ -469,5 +620,18 @@ class _CleanPageState extends State<CleanPage> {
   }
 }
 
+//cleaner class
+class cleanerClass {
+  late String name;
+  late String email;
+  late String address;
+  late String phoneNumber;
+  late bool checkValue;
 
-
+  cleanerClass(
+      {required this.name,
+      required this.email,
+      required this.address,
+      required this.phoneNumber,
+      this.checkValue = false});
+}
