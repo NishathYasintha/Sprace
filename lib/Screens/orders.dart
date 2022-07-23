@@ -121,43 +121,49 @@ class _OrdersPageState extends State<OrdersPage> {
                   padding: const EdgeInsets.only(top:10 ,left:7 , right:7 ,bottom:10 ),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 20,top: 30),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 30,top: 30),
-                          child: Row(
-                            children: [
-                              Container(
-                                child: Text('Order',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 30,top: 30),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    child: Text('Order',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
+                                  ),
+                                  SizedBox(width: 270.0,),
+                                  Container(
+                                    child: Text('Date',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
+                                          
+                                  ),
+                                  SizedBox(width: 270.0,),
+                                  Container(
+                                    child: Text('Status',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
+                                          
+                                  ),
+                                  SizedBox(width: 270.0,),
+                                  Container(
+                                    child: Text('Price'.toString(),style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
+                                  ),
+                                ],
                               ),
-                              SizedBox(width: 270.0,),
-                              Container(
-                                child: Text('Date',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
-
-                              ),
-                              SizedBox(width: 270.0,),
-                              Container(
-                                child: Text('Status',style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
-
-                              ),
-                              SizedBox(width: 270.0,),
-                              Container(
-                                child: Text('Price'.toString(),style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700),),
-                              ),
-                            ],
-                          ),
+                            ),
+                            SizedBox(height: 20,),
+                            OrderDerails('Order1','Aug 4,2021', 'completed', 3000,filterType: _filterBy),
+                            OrderDerails('Order2','Aug 4,2021', 'processing', 3000, filterType: _filterBy),
+                            OrderDerails('Order1','Aug 4,2021', 'completed', 3000, filterType: _filterBy),
+                            OrderDerails('Order3','Aug 4,2021', 'rejected', 3000, filterType: _filterBy),
+                                          
+                                          
+                                          
+                          ],
                         ),
-                        SizedBox(height: 20,),
-                        OrderDerails('Order1','Aug 4,2021', 'completed', 3000,filterType: _filterBy),
-                        OrderDerails('Order2','Aug 4,2021', 'processing', 3000, filterType: _filterBy),
-                        OrderDerails('Order1','Aug 4,2021', 'completed', 3000, filterType: _filterBy),
-                        OrderDerails('Order3','Aug 4,2021', 'rejected', 3000, filterType: _filterBy),
-
-
-
-                      ],
+                      ),
                     ),
                   ),
                 ),
