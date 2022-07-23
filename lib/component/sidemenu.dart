@@ -409,7 +409,8 @@ class _SideMenuState extends State<SideMenu> {
                       ],
                     ),
                   ),
-                  LoadPage()
+                  LoadPage(),
+                  
                 ],
                   
               ),

@@ -28,6 +28,7 @@ class _DashboardPageState extends State<DashboardPage> {
 
                 ],
               ),
+              SizedBox(height: 450,)
             ],
           ),
         ),
@@ -86,6 +87,7 @@ Comp(var _title, var _icon, var _count) {
               )
             ],
           ),
+          
         ],
       ),
     ),
