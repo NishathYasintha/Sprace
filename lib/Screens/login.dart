@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sprace/Screens/dashboard.dart';
 import 'package:sprace/Screens/signup.dart';
 import 'package:sprace/component/colors.dart';
 import '../component/sidemenu.dart';
-import '../main.dart';
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
