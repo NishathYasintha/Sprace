@@ -43,18 +43,24 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ],
                   ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    // children: [
-                    //   Comp('Orders','wysiwyg',06),
-                    //   Comp('Services','wysiwyg',12),
-                    //   Comp('Cleaners','wysiwyg',24),
-
-                    // ],
-                    children: [
-                      UserDetails(),
-                    ],
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        // children: [
+                        //   Comp('Orders','wysiwyg',06),
+                        //   Comp('Services','wysiwyg',12),
+                        //   Comp('Cleaners','wysiwyg',24),
+                                      
+                        // ],
+                        children: [
+                          UserDetails(),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -127,11 +133,12 @@ UserDetails() {
                                 height: 40,
                                 width: 300,
                                 child: TextField(
+                                  controller:name,
                                   keyboardType: TextInputType.emailAddress,
                                   decoration: InputDecoration(
                                       filled: true,
                                       fillColor: Colors.white,
-                                      hintText: 'Name',
+                                      // hintText: 'Name',
                                       border: new OutlineInputBorder(
                                           borderSide: const BorderSide(
                                               color: Colors.white))),
@@ -148,11 +155,12 @@ UserDetails() {
                                   width: 300.0,
                                   height: 40,
                                   child: TextField(
+                                    controller: address,
                                     keyboardType: TextInputType.emailAddress,
                                     decoration: InputDecoration(
                                         filled: true,
                                         fillColor: Colors.white,
-                                        hintText: 'Address',
+                                        // hintText: 'Address',
                                         border: new OutlineInputBorder(
                                             borderSide: const BorderSide(
                                                 color: Colors.white))),
@@ -164,11 +172,12 @@ UserDetails() {
                                 width: 300,
                                 height: 40,
                                 child: TextField(
+                                  controller: newPassword,
                                   keyboardType: TextInputType.visiblePassword,
                                   decoration: const InputDecoration(
                                     filled: true,
                                     fillColor: Colors.white,
-                                    hintText: 'New Password',
+                                    // hintText: 'New Password',
                                     border: const OutlineInputBorder(),
                                     // suffixIcon: IconButton(
                                     //   icon: _obscureText
@@ -194,11 +203,12 @@ UserDetails() {
                                 height: 40,
                                 width: 300,
                                 child: TextField(
+                                  controller: email,
                                   keyboardType: TextInputType.emailAddress,
                                   decoration: InputDecoration(
                                       filled: true,
                                       fillColor: Colors.white,
-                                      hintText: 'Email',
+                                      // hintText: 'Email',
                                       border: new OutlineInputBorder(
                                           borderSide: const BorderSide(
                                               color: Colors.white))),
@@ -215,11 +225,12 @@ UserDetails() {
                                   width: 300.0,
                                   height: 40,
                                   child: TextField(
+                                    controller: mobileNumber,
                                     keyboardType: TextInputType.emailAddress,
                                     decoration: InputDecoration(
                                         filled: true,
                                         fillColor: Colors.white,
-                                        hintText: 'Mobile Number',
+                                        // hintText: 'Mobile Number',
                                         border: new OutlineInputBorder(
                                             borderSide: const BorderSide(
                                                 color: Colors.white))),
@@ -231,12 +242,14 @@ UserDetails() {
                                 width: 300,
                                 height: 40,
                                 child: TextField(
+                                  controller: confirmPassword,
                                   keyboardType: TextInputType.visiblePassword,
                                   decoration: const InputDecoration(
                                     filled: true,
                                     fillColor: Colors.white,
-                                    hintText: 'Confirm Password',
+                                    // hintText: 'Confirm Password',
                                     border: const OutlineInputBorder(),
+                                     
                                     // suffixIcon: IconButton(
                                     //   icon: _obscureText
                                     //       ?Icon(Icons.visibility_off, color: AppColor.textDark,)
@@ -261,11 +274,12 @@ UserDetails() {
                                 width: 300,
                                 height: 40,
                                 child: TextField(
-                                  keyboardType: TextInputType.emailAddress,
+                                  controller: birthDay,
+                                  keyboardType: TextInputType.datetime,
                                   decoration: InputDecoration(
                                       filled: true,
                                       fillColor: Colors.white,
-                                      hintText: 'Email Address',
+                                      // hintText: 'Email Address',
                                       border: new OutlineInputBorder(
                                           borderSide: const BorderSide(
                                               color: Colors.white))),
@@ -308,11 +322,12 @@ UserDetails() {
                                 height: 40,
                                 width: 300,
                                 child: TextField(
+                                  controller: cardNumber,
                                   keyboardType: TextInputType.emailAddress,
                                   decoration: InputDecoration(
                                       filled: true,
                                       fillColor: Colors.white,
-                                      hintText: 'Card Number',
+                                      // hintText: 'Card Number',
                                       border: new OutlineInputBorder(
                                           borderSide: const BorderSide(
                                               color: Colors.white))),
@@ -327,11 +342,12 @@ UserDetails() {
                                 width: 300.0,
                                 height: 40,
                                 child: TextField(
+                                  controller: cardHolder,
                                   keyboardType: TextInputType.emailAddress,
                                   decoration: InputDecoration(
                                       filled: true,
                                       fillColor: Colors.white,
-                                      hintText: 'Card Holder Name',
+                                      // hintText: 'Card Holder Name',
                                       border: new OutlineInputBorder(
                                           borderSide: const BorderSide(
                                               color: Colors.white))),
@@ -351,11 +367,12 @@ UserDetails() {
                                 height: 40,
                                 width: 300,
                                 child: TextField(
+                                  controller: expiryDate,
                                   keyboardType: TextInputType.emailAddress,
                                   decoration: InputDecoration(
                                       filled: true,
                                       fillColor: Colors.white,
-                                      hintText: 'Expiry Date',
+                                      // hintText: 'Expiry Date',
                                       border: new OutlineInputBorder(
                                           borderSide: const BorderSide(
                                               color: Colors.white))),
@@ -370,11 +387,12 @@ UserDetails() {
                                 width: 300.0,
                                 height: 40,
                                 child: TextField(
+                                  controller: cvv,
                                   keyboardType: TextInputType.emailAddress,
                                   decoration: InputDecoration(
                                       filled: true,
                                       fillColor: Colors.white,
-                                      hintText: 'CVV/CVC',
+                                      // hintText: 'CVV/CVC',
                                       border: new OutlineInputBorder(
                                           borderSide: const BorderSide(
                                               color: Colors.white))),
@@ -412,3 +430,16 @@ UserDetails() {
     ),
   );
 }
+
+
+TextEditingController name = TextEditingController()..text = 'Dineth';
+TextEditingController address = TextEditingController()..text = 'A street, Tokyo';
+TextEditingController newPassword= TextEditingController()..text = '123';
+TextEditingController email= TextEditingController()..text = 'name1@gmail.com';
+TextEditingController mobileNumber = TextEditingController()..text = '077-1234567';
+TextEditingController confirmPassword= TextEditingController()..text = '123';
+TextEditingController birthDay= TextEditingController()..text = '22.10.1998';
+TextEditingController cardNumber= TextEditingController()..text = '789';
+TextEditingController cardHolder = TextEditingController()..text = 'Dineth';
+TextEditingController expiryDate = TextEditingController()..text = '14.10.2022';
+TextEditingController cvv = TextEditingController()..text = '789';

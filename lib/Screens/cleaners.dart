@@ -19,7 +19,7 @@ class _CleanPageState extends State<CleanPage> {
     Future<void> openDialog() async {
       return showDialog<void>(
         context: context,
-        barrierDismissible: false, // user must tap button!
+        barrierDismissible: true, // user must tap button!
         builder: (BuildContext context) {
           return AlertDialog(
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
