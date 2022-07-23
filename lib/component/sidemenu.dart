@@ -7,6 +7,7 @@ import 'package:sprace/component/colors.dart';
 
 import '../Screens/cleaners.dart';
 import '../Screens/dashboard.dart';
+import '../Screens/login.dart';
 
 var _page='Dashboard';
 
@@ -194,14 +195,14 @@ class _SideMenuState extends State<SideMenu> {
                     Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 40,right: 40, top: 10),
+                          padding: const EdgeInsets.only(left: 40,right: 40, top: 0,bottom: 10),
                           child: Container(
                             decoration: BoxDecoration(
                                 color: _dashCov,
                                 borderRadius: BorderRadius.circular(20)
                             ),
-                            width: 200,
-                            height: 80,
+                            width: 250,
+                            height: 60,
                             child: ListTile(
                               // hoverColor: Colors.orange,
                               leading: Icon(Icons.home_filled,color: _dashFont,),
@@ -210,20 +211,20 @@ class _SideMenuState extends State<SideMenu> {
                               onTap: (){
                                 EditPage('Dashboard');
                               },
-                              contentPadding: EdgeInsets.only(left: 30, top:18,bottom: 20),
+                              contentPadding: EdgeInsets.only(left: 30, top:8,bottom: 20),
                               style: ListTileStyle.drawer,
                             ),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 40,right: 40, top: 10),
+                          padding: const EdgeInsets.only(left: 40,right: 40, top: 0,bottom: 10),
                           child: Container(
                             decoration: BoxDecoration(
                                 color: _orderCov,
                                 borderRadius: BorderRadius.circular(20)
                             ),
-                            width: 200,
-                            height: 80,
+                            width: 250,
+                            height: 60,
                             child: ListTile(
                               // hoverColor: Colors.orange,
                               leading: Icon(Icons.list_alt_rounded,color: _orderFont,),
@@ -232,7 +233,8 @@ class _SideMenuState extends State<SideMenu> {
                               onTap: (){
                                     EditPage('Orders');
                               },
-                              contentPadding: EdgeInsets.only(left: 30, top:18,bottom: 20),
+                              contentPadding: EdgeInsets.only(left: 30, top:8,bottom: 20),
+
                               style: ListTileStyle.drawer,
       
                               tileColor: Colors.red,
@@ -240,14 +242,14 @@ class _SideMenuState extends State<SideMenu> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 40,right: 40, top: 10),
+                          padding: const EdgeInsets.only(left: 40,right: 40, top: 0,bottom: 10),
                           child: Container(
                             decoration: BoxDecoration(
                                 color: _cleanerCov,
                                 borderRadius: BorderRadius.circular(20)
                             ),
-                            width: 200,
-                            height: 80,
+                            width: 250,
+                            height: 60,
                             child: ListTile(
                               // hoverColor: Colors.orange,
                               leading: Icon(Icons.people ,color: _cleanerFont,),
@@ -256,7 +258,7 @@ class _SideMenuState extends State<SideMenu> {
                               onTap: (){
                                 EditPage('Cleaners');
                               },
-                              contentPadding: EdgeInsets.only(left: 30, top:18,bottom: 20),
+                              contentPadding: EdgeInsets.only(left: 30, top:8,bottom: 20),
                               style: ListTileStyle.drawer,
       
                               tileColor: Colors.red,
@@ -264,14 +266,14 @@ class _SideMenuState extends State<SideMenu> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 40,right: 40, top: 10),
+                          padding: const EdgeInsets.only(left: 40,right: 40, top: 0,bottom: 10),
                           child: Container(
                             decoration: BoxDecoration(
                                 color: _serviceCov,
                                 borderRadius: BorderRadius.circular(20)
                             ),
-                            width: 200,
-                            height: 80,
+                            width: 250,
+                            height: 60,
                             child: ListTile(
                               // hoverColor: Colors.orange,
                               leading: Icon(Icons.cleaning_services,color: _serviceFont,),
@@ -280,7 +282,7 @@ class _SideMenuState extends State<SideMenu> {
                               onTap: (){
                                 EditPage('Services');
                               },
-                              contentPadding: EdgeInsets.only(left: 30, top:18,bottom: 20),
+                              contentPadding: EdgeInsets.only(left: 30, top:8,bottom: 20),
                               style: ListTileStyle.drawer,
       
                               tileColor: Colors.red,
@@ -288,22 +290,23 @@ class _SideMenuState extends State<SideMenu> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 40,right: 40, top: 10),
+                          padding: const EdgeInsets.only(left: 40,right: 40, top: 0,bottom: 10),
                           child: Container(
                             decoration: BoxDecoration(
                                 color: _profileCov,
                                 borderRadius: BorderRadius.circular(20)
                             ),
-                            width: 200,
-                            height: 80,
+                            width: 250,
+                            height: 60,
                             child: ListTile(
                               // hoverColor: Colors.orange,
                               leading: Icon(Icons.account_circle_rounded,color: _profileFont,),
                               title: Text('Profile',
                                   style: TextStyle(fontSize: 18, color: _profileFont)),
-                              onTap: (){EditPage('Profile');
+                              onTap: (){
+                                EditPage('Profile');
                               },
-                              contentPadding: EdgeInsets.only(left: 30, top:18,bottom: 20),
+                              contentPadding: EdgeInsets.only(left: 30, top:8,bottom: 20),
                               style: ListTileStyle.drawer,
       
                               tileColor: Colors.red,
@@ -333,7 +336,7 @@ class _SideMenuState extends State<SideMenu> {
                     child: Row(
                       children: [
                         SizedBox(width: 40,),
-                        Expanded(
+                        Container(
                             child:
                             Topic(_page)
                         ),
@@ -368,7 +371,11 @@ class _SideMenuState extends State<SideMenu> {
                                 PopupMenuItem(child: ListTile(
                                   title: Text('Sign Out'),
                                   onTap: (){
-                  
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (BuildContext context) => LoginPage(),
+                                        ));
                                   },
                                 ))
                               ],
@@ -381,7 +388,8 @@ class _SideMenuState extends State<SideMenu> {
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                            ),),
+                            ),
+                            ),
                             SizedBox(width: 20,),
                             Container(
                               child: SizedBox(
@@ -410,9 +418,7 @@ class _SideMenuState extends State<SideMenu> {
                     ),
                   ),
                   LoadPage(),
-                  
                 ],
-                  
               ),
             )
           ],
