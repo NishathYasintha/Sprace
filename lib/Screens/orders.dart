@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sprace/component/colors.dart';
 
-// import '../component/header.dart';
-import '../component/sidemenu.dart';
 
 class OrdersPage extends StatefulWidget {
   const OrdersPage({Key? key}) : super(key: key);

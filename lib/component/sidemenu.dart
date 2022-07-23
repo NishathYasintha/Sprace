@@ -359,7 +359,16 @@ class _SideMenuState extends State<SideMenu> {
                       children: [
                         // Icon(Icons.notifications_none),
                         SizedBox(width: 20,),
-                        Container(
+                        PopupMenu(
+                          menuList: [
+                            PopupMenuItem(child: ListTile(
+                              title: Text('Sign Out'),
+                              onTap: (){
+                                
+                              },
+                            ))
+                          ],
+                          icon: Container(
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
@@ -368,7 +377,7 @@ class _SideMenuState extends State<SideMenu> {
                               fit: BoxFit.cover,
                             ),
                           ),
-                        ),
+                        ),),
                         SizedBox(width: 20,),
                         Container(
                           child: SizedBox(
@@ -405,6 +414,21 @@ class _SideMenuState extends State<SideMenu> {
     );
   }
 }
+
+class PopupMenu extends StatelessWidget {
+  final List<PopupMenuEntry> menuList;
+  final Widget? icon;
+  const PopupMenu({Key? key, required this.menuList, this.icon}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return PopupMenuButton(
+        itemBuilder: ((context)=>menuList),
+      icon: icon,
+    );
+  }
+}
+
 
 
 Topic(var _topic){
